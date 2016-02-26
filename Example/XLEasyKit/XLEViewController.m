@@ -7,6 +7,7 @@
 //
 
 #import "XLEViewController.h"
+#import "XLEButtonTestViewController.h"
 
 @interface XLEViewController ()
 
@@ -24,6 +25,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)doAddItemsOperation{
+    WS(weakSelf);
+    [self.items addObject:[XLEDemoItem itemWithName:@"UIButton相关测试" desc:@"" callback:^{
+        XLEButtonTestViewController *vc = [[XLEButtonTestViewController alloc] init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }]];
 }
 
 @end

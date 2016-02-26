@@ -7,7 +7,7 @@
 //
 
 @import UIKit;
-
-@interface XLEViewController : UIViewController
+#import <XLEasyKit/XLEasyKit.h>
+@interface XLEViewController : XLEDemoViewController
 
 @end
