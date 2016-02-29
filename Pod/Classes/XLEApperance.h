@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define XLEApperanceInstance [XLEApperance sharedInstance]
+
 //颜色
 #define XLE_TINT_COLOR              [XLEApperance sharedInstance].tintColor
 #define XLE_BG_COLOR                [XLEApperance sharedInstance].bgColor
@@ -19,7 +21,7 @@
 #define XLE_TEXT_LIGHT_COLOR        [XLEApperance sharedInstance].lightTextColor
 
 #define XLE_LINE_HEAVY_COLOR        [XLEApperance sharedInstance].heavyLineColor
-#define XLE_LINE_LIGHT_COLOR        [XLEApperance sharedInstance].lightLineCOlor
+#define XLE_LINE_LIGHT_COLOR        [XLEApperance sharedInstance].lightLineColor
 
 #define XLE_FONT(fontSize)          [UIFont systemFontOfSize:fontSize]
 #define XLE_FONT_BOLD(fontSize)     [UIFont boldSystemFontOfSize:fontSize]
@@ -56,22 +58,22 @@
 #define XLE_LR_RADDING [XLEApperance sharedInstance].lrPadding
 #define XLE_TB_RADDING [XLEApperance sharedInstance].tbPadding
 
-#define XLEApperanceInstance [XLEApperance sharedInstance]
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XLEApperance : NSObject
-@property (strong, nonatomic) UIColor *tintColor;
 @property (strong, nonatomic) UIColor *bgColor;
+
+@property (strong, nonatomic) UIColor *tintColor;
 @property (strong, nonatomic) UIColor *lightTintColor;
 @property (strong, nonatomic) UIColor *heavyTintColor;
 @property (strong, nonatomic) UIColor *darkTintColor;
+
 @property (strong, nonatomic) UIColor *darkTextColor;
 @property (strong, nonatomic) UIColor *heavyTextColor;
 @property (strong, nonatomic) UIColor *lightTextColor;
 
 @property (strong, nonatomic) UIColor *heavyLineColor;
-@property (strong, nonatomic) UIColor *lightLineCOlor;
+@property (strong, nonatomic) UIColor *lightLineColor;
 
 @property (strong, nonatomic) UIFont *veryLargeFont;
 @property (strong, nonatomic) UIFont *largeFont;
@@ -92,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSDictionary<NSString *,id> *naviRightTitleAttributes;
 @property (copy, nonatomic) NSDictionary<NSString *,id> *naviRightTitlePressAttributes;//高亮
 
-@property (strong, nonatomic) UIFont *buttonTextFont;
+@property (strong, nonatomic) UIFont *buttonTextFont; //默认15 粗体
 
 //tip loading error
 @property (strong, nonatomic) UIFont *tipFont;
@@ -106,10 +108,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nullable, nonatomic) NSString *loadingImagePath;
 
 //TableView
-@property (strong, nonatomic) UIColor *separateColor;
-@property (assign, nonatomic) CGFloat separatorLeftMargin;
-@property (assign, nonatomic) CGFloat separateLineHeight;
-@property (assign, nonatomic) CGFloat rowHeight;
+@property (strong, nonatomic) UIColor *separateColor;//
+@property (assign, nonatomic) CGFloat separatorLeftMargin;//15
+@property (assign, nonatomic) CGFloat separateLineHeight;//0.5
+@property (assign, nonatomic) CGFloat rowHeight; // 44
 
 //border
 @property (assign, nonatomic) CGFloat borderWidth;
@@ -132,6 +134,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //statusbar
 @property (assign, nonatomic) UIStatusBarStyle statusStyle;
+
+//list
+@property (strong, nullable, nonatomic) UIImage *listNodateImage;//无数据的图片
+@property (strong, nullable, nonatomic) UIImage *listErrorImage;//错误的图片
 
 + (instancetype)sharedInstance;
 

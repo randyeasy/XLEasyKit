@@ -33,7 +33,7 @@
 /**
  *  显示GIF动画
  */
-+ (void)showAnimation:(NSString *)messgae toView:(uiview *)view;
++ (void)showAnimation:(NSString *)messgae toView:(UIView *)view;
 
 /**
  *  隐藏TXLoading

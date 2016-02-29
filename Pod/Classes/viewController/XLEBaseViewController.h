@@ -10,7 +10,7 @@
 
 @interface XLEBaseViewController : UIViewController
 //把当前视图从导航队列中移除 在push结束的时候
-@property (assign, nonatomic) BOOL shouldDestroy;
+@property (assign, nonatomic) BOOL shouldRomoveWhenViewDisappear;
 
 /**
  *  是否需要隐藏导航栏，视图控制器包含在XLENavigationController对象中才会起作用 默认显示

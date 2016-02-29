@@ -18,7 +18,6 @@
 
 @property (strong, nonatomic) Class blankClass;
 @property (strong, nonatomic) Class errorClass;
-@property (strong, nonatomic) Class cellClass;
 
 @property (assign, nonatomic) UITableViewStyle tableViewStyle;
 

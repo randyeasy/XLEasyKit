@@ -90,16 +90,6 @@
 }
 
 /**
- *  override method 点击Error或者空白等情况的按钮事件
- *
- *  @param sender sender
- */
-- (void)onTapButton:(id)sender data:(id)data;
-{
-    
-}
-
-/**
  *  override method
  *
  *  @return 高度
@@ -119,6 +109,13 @@
 - (void)onTableView:(XLEBaseTableView *)tableView updateErrorView:(UIView *)blankView;
 {
     
+}
+
+- (Class)onTableView:(UITableView *)tableView
+         cellForItem:(id)data
+           indexPath:(NSIndexPath *)indexPath;
+{
+    return nil;
 }
 
 #pragma mark XLEBaseTableViewDelegate
@@ -244,7 +241,7 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
-    Class cellClass = self.config.cellClass;
+    Class cellClass = [self onTableView:tableView cellForItem:[self.mutList xle_objectAtIndex:indexPath.row] indexPath:indexPath];
     NSString *className = NSStringFromClass([cellClass class]);
     UITableViewCell* cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:className];
     if (cell == nil) {

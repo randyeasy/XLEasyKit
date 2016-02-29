@@ -226,7 +226,7 @@
         if (!self.mj_footer) {
             self.mj_footer = [XLEMJRefreshFactory createFooterWithBlock:^{
                 if ([weakSelf.delegate respondsToSelector:@selector(tableView:getMore:)]) {
-                    [(id<XLEBaseTableViewDelegate>)weakSelf.delegate tableView:weakSelf getMore:^() {
+                    [(id<XLEBaseTableViewDelegate>)weakSelf.delegate tableView:weakSelf getMore:^(BOOL isSuc) {
                         [weakSelf updateFooterHidden];
                         [weakSelf.mj_footer endRefreshing];
                     }];

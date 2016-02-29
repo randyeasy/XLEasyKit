@@ -7,6 +7,9 @@
 //
 
 #import "XLETableConfigModel.h"
+#import "XLETableViewCell.h"
+#import "XLEBlankView.h"
+#import "XLEErrorView.h"
 
 @implementation XLETableConfigModel
 
@@ -16,7 +19,8 @@
     if (self) {
         _hasPull = YES;
         _nodataTip = @"暂无数据";
-        _cellClass = [XLETableViewCell class];
+        _blankClass = [XLEBlankView class];
+        _errorClass = [XLEErrorView class];
     }
     return self;
 }

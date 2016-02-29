@@ -11,6 +11,11 @@
 
 #import "XLEMacroUtils.h"
 
+#import "XLEApperance.h"
+#import "XLEConfig.h"
+#import "XLEManager.h"
+#import "XLEPullRefreshApperance.h"
+
 #import "UIActionSheet+XLEBlocks.h"
 #import "UIAlertView+XLEBlock.h"
 #import "UIImage+XLEUitls.h"

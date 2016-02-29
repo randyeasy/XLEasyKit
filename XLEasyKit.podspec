@@ -42,7 +42,8 @@ Pod::Spec.new do |s|
     '#import <SDWebImage/UIButton+WebCache.h>',
     '#import <XLEasyFoundation/XLEasyFoundation.h>',
     '#import <PureLayout/PureLayout.h>',
-    '#import <MBProgressHUD/MBProgressHUD.h>'
+    '#import <MBProgressHUD/MBProgressHUD.h>',
+    '#import <XLEasyCache/XLEasyCache.h>'
   s.frameworks = 'UIKit'
   s.dependency 'PureLayout'
   s.dependency 'SDWebImage', '~> 3.7.0'
@@ -52,5 +53,6 @@ Pod::Spec.new do |s|
   s.dependency 'JSBadgeView', '~> 1.4.1'
   s.dependency 'MBProgressHUD', '~> 0.9'
   s.dependency 'YLGIFImage', '~> 0.11'
+  s.dependency 'XLEasyCache', '~> 0.1.0'
 
 end
