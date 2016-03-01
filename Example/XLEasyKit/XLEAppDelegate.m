@@ -7,12 +7,16 @@
 //
 
 #import "XLEAppDelegate.h"
+#import <XLEasyFoundation/XLEasyFoundation.h>
+#import <XLEasyCache/XLEasyCache.h>
 
 @implementation XLEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [XLELog setLogLevel:XLE_LOG_LEVEL_DEBUG];
+    [XLEUserCache registerCacheWithUserName:@"test"];
     return YES;
 }
 

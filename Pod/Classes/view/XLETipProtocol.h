@@ -66,4 +66,8 @@ typedef void (^XLETipCompletionBlock)();
  */
 + (void)showError:(NSString *)message toView:(UIView *)view completion:(XLETipCompletionBlock)completion;
 
++ (void)showStatusTip:(NSString *)message completion:(XLETipCompletionBlock)completion;
+
+
+
 @end

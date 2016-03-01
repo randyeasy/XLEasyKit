@@ -29,17 +29,17 @@
         _pullingStateTitle = @"松开立即刷新";
         _refreshingStateTitle = @"正在刷新...";
         
-        _stateFont = XLE_MIDDLE_BOLD_FONT;
-        _stateTextColor = XLE_TEXT_DARK_COLOR;
-        _lastUpdatedTimeFont = XLE_MIDDLE_BOLD_FONT;
-        _lastUpdatedTimeTextColor = XLE_TEXT_DARK_COLOR;
+        _stateFont = XLE_MIDDLE_FONT;
+        _stateTextColor = XLE_TEXT_HEAVY_COLOR;
+        _lastUpdatedTimeFont = XLE_MIDDLE_FONT;
+        _lastUpdatedTimeTextColor = XLE_TEXT_HEAVY_COLOR;
         
         _footerIdelTitle = @"上拉可以加载更多";
         _footerPullingTitle = @"松开立即加载更多";
         _footerRefreshingTitle = @"正在加载更多的数据...";
-        _footerNoMoreTitle = @"已经全部加载完毕";
-        _footerStateFont = XLE_MIDDLE_BOLD_FONT;
-        _footerStateTextColor = XLE_TEXT_DARK_COLOR;
+        _footerNoMoreTitle = @"数据已全部加载";
+        _footerStateFont = XLE_MIDDLE_FONT;
+        _footerStateTextColor = XLE_TEXT_HEAVY_COLOR;
         
         _animatedDuration = 0.4;
         _footerAnimatedDuration = 0.4;

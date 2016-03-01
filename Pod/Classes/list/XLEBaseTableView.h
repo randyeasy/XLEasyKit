@@ -13,7 +13,7 @@
 @interface XLEBaseTableView : XLEKeyboardTableView
 
 - (void)startRefresh;
-- (void)showErrorView:(UIView *)errorView;
+- (void)noticeErrorChange;
 - (void)setDelegate:(id<XLEBaseTableViewDelegate>)delegate;
 
 @end

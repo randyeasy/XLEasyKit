@@ -17,10 +17,10 @@
 
 #define __XLEWeakObject(object) __weak typeof (object)
 
-#define xleWeakifyself __XLEWeakSelf__ wSelf = self;
-#define xleStrongifyself __XLEWeakSelf__ self = wSelf;
+#define XLEWeakifyself __XLEWeakSelf__ wSelf = self;
+#define XLEStrongifyself __XLEWeakSelf__ self = wSelf;
 
-#define xleWeakifyobject(obj) __XLEWeakObject(obj) $##obj = obj;
-#define xleStrongifobject(obj) __XLEWeakObject(obj) obj = $##obj;
+#define XLEWeakifyobject(obj) __XLEWeakObject(obj) $##obj = obj;
+#define XLEStrongifobject(obj) __XLEWeakObject(obj) obj = $##obj;
 
 #endif /* XLEMacroUtils_h */

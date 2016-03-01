@@ -17,6 +17,26 @@
 
 @implementation XLEBlankView
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self label];
+        _label.text = @"无数据";
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self label];
+        _label.text = @"无数据";
+    }
+    return self;
+}
+
 - (instancetype)init
 {
     self = [super init];

@@ -18,10 +18,28 @@
 
 @implementation XLEBaseTableView
 
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
+{
+    self = [super initWithFrame:frame style:style];
+    if (self) {
+        self.rowHeight = XLEApperanceInstance.rowHeight;
+        self.separatorInset = UIEdgeInsetsMake(0, XLEApperanceInstance.separatorLeftMargin, 0, 0);
+        self.separatorColor = XLEApperanceInstance.separateColor;
+    }
+    return self;
+}
+
 - (void)setDelegate:(id<XLEBaseTableViewDelegate>)delegate;
 {
     [super setDelegate:delegate];
 }
+
+#pragma mark - public
+- (void)noticeErrorChange;
+{
+    [self analyseShowErrorView];
+}
+
 
 //- (id<XLEBaseTableViewDelegate>)delegate;
 //{
@@ -34,9 +52,20 @@
 
 - (void)startRefresh
 {
-    [self.mj_header beginRefreshing];
+    XLEWS(weakSelf);
+    if (self.mj_header) {
+        [self.mj_header beginRefreshing];
+    }
+    else{
+        if ([(id<XLEBaseTableViewDelegate>)self.delegate respondsToSelector:@selector(tableView:refresh:)]) {
+            [(id<XLEBaseTableViewDelegate>)self.delegate tableView:self refresh:^(BOOL isSuc) {
+                [weakSelf refreshFinishHandle:isSuc];
+            }];
+        }
+    }
 }
 
+#pragma mark - private
 - (void)removeBlankView
 {
     [self.blankView removeFromSuperview];
@@ -116,6 +145,10 @@
 
 - (void)analyseShowBlankView
 {
+    if ([self analyseNeedShowError]) {
+        [self removeBlankView];
+        return;
+    }
     NSInteger sectionNumber = 1;
     if ([self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
         sectionNumber = [self.dataSource numberOfSectionsInTableView:self];
@@ -137,6 +170,7 @@
 
 - (void)showErrorView:(UIView *)errorView
 {
+    [self removeBlankView];
     if (errorView != self.errorView) {
         [self removeErrorView];
         self.errorView = errorView;
@@ -149,9 +183,35 @@
     }
 }
 
+- (BOOL)analyseNeedShowError
+{
+    NSInteger sectionNumber = 1;
+    if ([self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        sectionNumber = [self.dataSource numberOfSectionsInTableView:self];
+    }
+    NSInteger section = sectionNumber - 1;
+    if ((section < 0 ||
+         [self.dataSource tableView:self numberOfRowsInSection:section]==0) &&
+        [self.delegate respondsToSelector:@selector(viewForErrorInTableView:)]) {
+        UIView *errorView = nil;
+        errorView = [(id<XLEBaseTableViewDelegate>)self.delegate  viewForErrorInTableView:self];
+        if (errorView) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (void)analyseShowErrorView
 {
-    if ([self.delegate respondsToSelector:@selector(viewForErrorInTableView:)]) {
+    NSInteger sectionNumber = 1;
+    if ([self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        sectionNumber = [self.dataSource numberOfSectionsInTableView:self];
+    }
+    NSInteger section = sectionNumber - 1;
+    if ((section < 0 ||
+         [self.dataSource tableView:self numberOfRowsInSection:section]==0) &&
+        [self.delegate respondsToSelector:@selector(viewForErrorInTableView:)]) {
         UIView *errorView = nil;
         errorView = [(id<XLEBaseTableViewDelegate>)self.delegate  viewForErrorInTableView:self];
         [self showErrorView:errorView];
@@ -202,8 +262,8 @@
 
 - (void)updateFooterHidden
 {
-    if ([self.delegate respondsToSelector:@selector(hasMoreInTableView:)]) {
-        if ([(id<XLEBaseTableViewDelegate>)self.delegate hasMoreInTableView:self]) {
+    if ([self.delegate respondsToSelector:@selector(hasMoreDataInTableView:)]) {
+        if ([(id<XLEBaseTableViewDelegate>)self.delegate hasMoreDataInTableView:self]) {
             if (self.mj_footer.state == MJRefreshStateNoMoreData) {
                 [self.mj_footer resetNoMoreData];
             }
@@ -217,18 +277,46 @@
     }
 }
 
-- (void)reloadData{
+- (void)refreshFinishHandle:(BOOL)refreshSuc
+{
     XLEWS(weakSelf);
-    BOOL hasMore = NO;
+
+    [weakSelf.mj_header endRefreshing];
     
-    if ([self.delegate respondsToSelector:@selector(hasMoreInTableView:)]) {
+    if (![(id<XLEBaseTableViewDelegate>)self.delegate hasRefreshInTableView:self]) {
+        weakSelf.mj_header = nil;
+    }
+    
+    [weakSelf updateFooterHidden];
+    
+    if (refreshSuc) {
+        [weakSelf removeErrorView];
+        [weakSelf analyseShowBlankView];
+        [super reloadData];
+    }
+    else
+    {
+        [weakSelf removeBlankView];
+        [weakSelf analyseShowErrorView];
+    }
+}
+
+- (BOOL)setupFooter
+{
+    BOOL hasMore = NO;
+    XLEWS(weakSelf);
+
+    if ([self.delegate respondsToSelector:@selector(hasMoreViewInTableView:)] && [(id<XLEBaseTableViewDelegate>)self.delegate hasMoreViewInTableView:self]) {
         hasMore = YES;
         if (!self.mj_footer) {
             self.mj_footer = [XLEMJRefreshFactory createFooterWithBlock:^{
                 if ([weakSelf.delegate respondsToSelector:@selector(tableView:getMore:)]) {
                     [(id<XLEBaseTableViewDelegate>)weakSelf.delegate tableView:weakSelf getMore:^(BOOL isSuc) {
-                        [weakSelf updateFooterHidden];
                         [weakSelf.mj_footer endRefreshing];
+                        [weakSelf updateFooterHidden];
+                        if (isSuc) {
+                            [super reloadData];
+                        }
                     }];
                 }
                 else
@@ -236,52 +324,58 @@
                     [weakSelf.mj_footer endRefreshing];
                 }
             }];
+            self.mj_footer.automaticallyHidden = YES;
         }
-        [weakSelf updateFooterHidden];
+    }
+    else
+        self.mj_footer = nil;
+    return hasMore;
+}
+
+- (BOOL)setupRefresh
+{
+    XLEWS(weakSelf);
+    
+    BOOL hasMore = ([self.delegate respondsToSelector:@selector(hasMoreViewInTableView:)] && [(id<XLEBaseTableViewDelegate>)self.delegate hasMoreViewInTableView:self]);
+
+    if ([self.delegate respondsToSelector:@selector(hasRefreshInTableView:)] && [(id<XLEBaseTableViewDelegate>)self.delegate hasRefreshInTableView:self]) {
+        self.mj_header = [XLEMJRefreshFactory createHeaderWithBlock:^{
+            if (hasMore) {
+                if ([weakSelf.mj_footer isRefreshing]) {
+                    [weakSelf.mj_footer endRefreshing];
+                }
+            }
+            
+            if ([weakSelf.delegate respondsToSelector:@selector(tableView:refresh:)]) {
+                [(id<XLEBaseTableViewDelegate>)weakSelf.delegate tableView:weakSelf refresh:^(BOOL isSuc) {
+                    [weakSelf refreshFinishHandle:isSuc];
+                }];
+            }
+            else
+            {
+                [weakSelf.mj_header endRefreshing];
+            }
+        }];
+        return YES;
+    }
+    else
+    {
+        self.mj_header = nil;
+        return NO;
+    }
+}
+
+- (void)reloadData{
+    
+    if ([self setupFooter]) {
+        [self updateFooterHidden];
     }
     
-    if ([self.delegate respondsToSelector:@selector(hasRefreshInTableView:)]) {
-        if ([(id<XLEBaseTableViewDelegate>)self.delegate hasRefreshInTableView:self]) {
-            self.mj_header = [XLEMJRefreshFactory createHeaderWithBlock:^{
-                if (hasMore) {
-                    if ([weakSelf.mj_footer isRefreshing]) {
-                        [weakSelf.mj_footer endRefreshing];
-                    }
-                }
-                
-                if ([weakSelf.delegate respondsToSelector:@selector(tableView:refresh:)]) {
-                    [(id<XLEBaseTableViewDelegate>)weakSelf.delegate tableView:weakSelf refresh:^(BOOL isSuc) {
-                        [weakSelf.mj_header endRefreshing];
-                        
-                        if (![(id<XLEBaseTableViewDelegate>)self.delegate hasRefreshInTableView:self]) {
-                            weakSelf.mj_header = nil;
-                        }
-                        
-                        [weakSelf updateFooterHidden];
-                        
-                        if (isSuc) {
-                            [weakSelf removeErrorView];
-                            [weakSelf analyseShowBlankView];
-                        }
-                        else
-                        {
-                            [weakSelf removeBlankView];
-                            [weakSelf analyseShowErrorView];
-                        }
-                    }];
-                }
-                else
-                {
-                    [weakSelf.mj_header endRefreshing];
-                }
-            }];
-        }
-        else
-            self.mj_header = nil;
-    }
+    [self setupRefresh];
     ///必须放到后面，MJRefresh框架依赖于上面的是否显示有做处理，所以先判断header和footer是否显示再刷新
     [super reloadData];
     [self analyseShowBlankView];
+    [self analyseShowErrorView];
 }
 
 @end

@@ -19,7 +19,7 @@ static char XLEViewObjectKey;
     return objc_getAssociatedObject(self, &XLEViewObjectKey);
 }
 
-- (void)setBjck_key:(id)xle_key
+- (void)setXle_key:(id)xle_key
 {
     objc_setAssociatedObject(self, &XLEViewObjectKey,
                              xle_key,

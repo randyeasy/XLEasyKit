@@ -23,7 +23,7 @@
 @end
 
 @protocol XLEQuickSearchListDelegate <XLETableViewListDelegate>
-
+@optional
 - (NSString *)onHistoryKeyInTableView:(UITableView *)tableView;
 
 @end
@@ -38,6 +38,7 @@
 
 @property (strong, nonatomic) Class blankClass;
 @property (strong, nonatomic) Class errorClass;
+@property (assign, nonatomic) BOOL hasMore;
 
 - (void)showSearch;
 - (void)closeSearch;

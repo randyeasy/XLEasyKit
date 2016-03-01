@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XLEBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,11 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *desc;
 @property (copy, nonatomic) void(^handleBlock)();
 
-+ (XLEDemoItem *)itemWithName:(NSString *)name desc:(NSString *)desc callback:(void(^)())callback;
++ (XLEDemoItem *)itemWithName:(NSString *)name desc:(nullable NSString *)desc callback:(void(^)())callback;
 
 @end
 
-@interface XLEDemoViewController : UIViewController
+@interface XLEDemoViewController : XLEBaseViewController
 @property (strong, readonly, nonatomic) NSMutableArray<XLEDemoItem *> *items;
 
 - (void)doAddItemsOperation NS_REQUIRES_SUPER;

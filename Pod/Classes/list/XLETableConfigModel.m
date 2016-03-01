@@ -18,7 +18,6 @@
     self = [super init];
     if (self) {
         _hasPull = YES;
-        _nodataTip = @"暂无数据";
         _blankClass = [XLEBlankView class];
         _errorClass = [XLEErrorView class];
     }

@@ -54,8 +54,11 @@
            indexPath:(NSIndexPath *)indexPath;
 
 @optional
-- (void)onTableView:(UITableView *)tableView updateBlankView:(UIView *)blankView;
+- (void)onTableView:(UITableView *)tableView
+    updateBlankView:(UIView *)blankView;
 
-- (void)onTableView:(UITableView *)tableView updateErrorView:(UIView *)blankView;
+- (void)onTableView:(XLEBaseTableView *)tableView
+    updateErrorView:(UIView *)errorView
+              error:(XLEError *)error;
 
 @end

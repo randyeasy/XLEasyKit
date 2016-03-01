@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+XLENaviItem.h"
-#import "XLEView.h"
+#import "XLEViewKit.h"
 #import "XLENavigationController.h"
 
 const CGFloat XLE_NAVI_BUTTON_ITEM_MIN_WIDTH = 44;
@@ -184,8 +184,9 @@ const CGFloat XLE_NAVI_BUTTON_ITEM_MIN_WIDTH = 44;
     CGFloat originalWidth = button.frame.size.width;
     if (originalWidth < XLE_NAVI_BUTTON_ITEM_MIN_WIDTH) {
         button.xle_current_w = XLE_NAVI_BUTTON_ITEM_MIN_WIDTH;
-        [button xle_setImageEdgeWithOffset:XLE_NAVI_BUTTON_ITEM_MIN_WIDTH - originalWidth direction:XLE_VIEW_DIRECTION_LEFT];
-        [button xle_setTitleEdgeWithOffset:XLE_NAVI_BUTTON_ITEM_MIN_WIDTH - originalWidth direction:XLE_VIEW_DIRECTION_LEFT];
+        CGFloat offset = XLE_NAVI_BUTTON_ITEM_MIN_WIDTH / 2.0f - originalWidth / 2.0f;
+        [button xle_setImageEdgeWithOffset:offset direction:XLE_VIEW_DIRECTION_LEFT];
+        [button xle_setTitleEdgeWithOffset:offset direction:XLE_VIEW_DIRECTION_LEFT];
     }
     
     if (item.selBlock) {

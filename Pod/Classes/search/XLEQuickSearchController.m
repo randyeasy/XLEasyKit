@@ -9,6 +9,8 @@
 #import "XLEQuickSearchController.h"
 #import "XLESearchHistoryTableViewCell.h"
 #import "XLELabel.h"
+#import "XLEBlankView.h"
+#import "XLEErrorView.h"
 
 @interface XLEQuickSearchController ()<
     XLEBaseTableViewDelegate,
@@ -19,7 +21,6 @@
 
 @property (copy, nonatomic) NSString *searchString;
 
-@property (assign, nonatomic) BOOL hasMore;
 @property (strong, nonatomic) XLEPageModel *pageModel;
 
 //历史记录
@@ -29,6 +30,9 @@
 
 @property (strong, nonatomic) UIView *blankView;
 @property (strong, nonatomic) UIView *errorView;
+@property (strong, nonatomic) XLEError *error;
+
+@property (assign, nonatomic) BOOL dataLoaded;
 
 @end
 
@@ -101,7 +105,8 @@
 }
 
 #pragma mark - UITableView delegate datasource
-- (BOOL)hasMoreInTableView:(XLEBaseTableView *)tableView
+
+- (BOOL)hasMoreViewInTableView:(XLEBaseTableView *)tableView;
 {
     if ([self shouldShowHistory]) {
         return NO;
@@ -110,19 +115,30 @@
     }
 }
 
-- (void)tableView:(XLEBaseTableView *)tableView getMore:(void (^)())callback
+//默认no
+- (BOOL)hasMoreDataInTableView:(XLEBaseTableView *)tableView;
+{
+    if ([self shouldShowHistory]) {
+        return NO;
+    } else {
+        return self.hasMore && self.pageModel.hasMore && self.searchList.count>0;
+    }
+}
+
+- (void)tableView:(XLEBaseTableView *)tableView getMore:(void (^)(BOOL isSuc))callback
 {
     XLEWS(weakSelf);
     NSString *searchString = self.searchString;
     
     XLEListRequestCallback requestCallback = ^(NSArray *items, XLEPageModel *pageModel, XLEError *error){
         if ([searchString isEqualToString:weakSelf.searchString]) {
+            weakSelf.pageModel = pageModel;
             if (items.count>0) {
                 [weakSelf.searchList addObjectsFromArray:items];
                 [weakSelf.searchDisplay.searchResultsTableView reloadData];
             }
             if (callback) {
-                callback();
+                callback(!error);
             }
         }
     };
@@ -137,18 +153,45 @@
     else
     {
         if (callback) {
-            callback();
+            callback(NO);
         }
     }
 }
 
+- (UIView *)viewForErrorInTableView:(XLEBaseTableView *)tableView
+{
+    if (![self shouldShowHistory] && self.dataLoaded && self.error) {
+        UIView *errorView = self.errorView;
+        if (!errorView) {
+            errorView = [[self.errorClass alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
+        }
+        
+        if ([errorView isKindOfClass:[XLEErrorView class]]) {
+            XLEErrorView *theErrorView = (XLEErrorView *)errorView;
+            theErrorView.label.text = self.error.reason;
+        }
+        
+        if (errorView && [self.delegate respondsToSelector:@selector(onTableView:updateErrorView:error:)]) {
+            [self.delegate onTableView:self.searchDisplay.searchResultsTableView updateErrorView:errorView error:self.error];
+        }
+        return errorView;
+    }
+    return nil;
+}
+
 - (UIView *)viewForBlankInTableView:(XLEBaseTableView *)tableView{
-    if (![self shouldShowHistory]) {
+    if (![self shouldShowHistory] && self.dataLoaded) {
         UIView *blankView = self.blankView;
         if (!blankView) {
             blankView = [[self.blankClass alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
         }
-        if ([self.delegate respondsToSelector:@selector(onTableView:updateBlankView:)]) {
+        
+        if ([blankView isKindOfClass:[XLEBlankView class]]) {
+            XLEBlankView *theBlankView = (XLEBlankView *)blankView;
+            theBlankView.label.text = @"无搜索结果";
+        }
+        
+        if (blankView && [self.delegate respondsToSelector:@selector(onTableView:updateBlankView:)]) {
             [self.delegate onTableView:tableView updateBlankView:self.blankView];
         }
         return blankView;
@@ -176,9 +219,9 @@
         if (cell == nil) {
             cell = [[XLESearchHistoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HistoryCell"];
         }
-        xleWeakifyself
+        XLEWeakifyself
         [cell setClickBubbleBlock:^(NSString *keyword) {
-            xleStrongifyself
+            XLEStrongifyself
             self.searchDisplay.searchBar.text = keyword;
             [self onSearchWithStr:keyword];
         }];
@@ -238,11 +281,16 @@
 - (void)onSearchWithStr:(NSString *)searchString
 {
     XLEWS(weakSelf);
+    weakSelf.dataLoaded = NO;
     [self.requestDelegate requestOpeRefreshWithSearchStr:searchString callback:^(NSArray *items, XLEPageModel *pageModel, XLEError *error) {
+        weakSelf.error = error;
+        weakSelf.dataLoaded = YES;
         weakSelf.pageModel = pageModel;
         weakSelf.searchList = [items mutableCopy];
         weakSelf.searchDisplay.searchResultsTableView.tableHeaderView = nil;
         weakSelf.searchDisplay.searchResultsTableView.tableFooterView = nil;
+        
+        [weakSelf.searchDisplay.searchResultsTableView noticeErrorChange];
         [weakSelf.searchDisplay.searchResultsTableView reloadData];
     }];
 }
@@ -282,14 +330,15 @@
     self.hasMore = NO;
     self.searchList = nil;
     self.searchDisplay.searchBar.text = @"";
+    [self.searchDisplay.searchResultsTableView reloadData];
 }
 
 - (void)clearHistoryAction {
-    [[XLEUserCache sharedCache] setObject:self.historyList forKey:self.historyKey];
     self.searchDisplay.searchResultsTableView.tableFooterView = nil;
     self.searchDisplay.searchResultsTableView.tableHeaderView = nil;
-    self.historyList = nil;
+    [self.historyList removeAllObjects];
     [self.searchDisplay.searchResultsTableView reloadData];
+    [[XLEUserCache sharedCache] setObject:self.historyList forKey:self.historyKey];
 }
 
 - (NSString *)historyKey
@@ -321,6 +370,9 @@
 {
     if (_historyList == nil && [self.delegate respondsToSelector:@selector(onHistoryKeyInTableView:)]) {
         _historyList = [[XLEUserCache sharedCache] objectForKey:[self.delegate onHistoryKeyInTableView:nil]];
+        if (_historyList == nil) {
+            _historyList = [NSMutableArray new];
+        }
     }
     
     return _historyList;

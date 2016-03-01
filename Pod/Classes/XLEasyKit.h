@@ -30,7 +30,11 @@
 #import "UIColor+XLEUtil.h"
 #import "UIImage+XLE.h"
 
-#import "XLEView.h"
+#import "XLEViewKit.h"
+
+#import "XLEListKit.h"
+
+#import "XLESearchKit.h"
 
 #import "XLEDemoViewController.h"
 

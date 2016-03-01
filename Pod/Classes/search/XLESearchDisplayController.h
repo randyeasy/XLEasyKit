@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) UISearchBar *searchBar;
 
 @property (nonatomic, strong) XLESearchResultsViewController *searchResultsViewController;
-@property (strong, readonly, nonatomic) UITableView *searchResultsTableView;
+@property (strong, readonly, nonatomic) XLEBaseTableView *searchResultsTableView;
 
 @property (nonatomic, getter=isActive)  BOOL active;
 

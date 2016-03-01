@@ -1,5 +1,5 @@
 //
-//  BJCKUIApperance.h
+//  XLEApperance.h
 //  Pods
 //
 //  Created by Randy on 16/2/3.
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 //naviBar
 @property (strong, nonatomic) UIImage *naviBarBackImage;//导航栏的返回按钮
 @property (strong, nonatomic) UIColor *naviBarBGColor;
-@property (copy, nonatomic) NSDictionary<NSString *,id> *naviTitleAttributes;//默认粗体16 白色
+@property (copy, nonatomic) NSDictionary<NSString *,id> *naviTitleAttributes;//默认粗体18 白色
 @property (copy, nonatomic) NSDictionary<NSString *,id> *naviRightTitleAttributes;
 @property (copy, nonatomic) NSDictionary<NSString *,id> *naviRightTitlePressAttributes;//高亮
 
@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 //TableView
 @property (strong, nonatomic) UIColor *separateColor;//
 @property (assign, nonatomic) CGFloat separatorLeftMargin;//15
-@property (assign, nonatomic) CGFloat separateLineHeight;//0.5
+@property (assign, nonatomic) CGFloat separateLineHeight;//0.5 暂不生效
 @property (assign, nonatomic) CGFloat rowHeight; // 44
 
 //border

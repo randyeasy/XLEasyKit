@@ -15,7 +15,7 @@
     return self.frame.origin.x;
 }
 
-- (void)setBjck_current_x:(CGFloat)current_x {
+- (void)setXle_current_x:(CGFloat)current_x {
     CGRect frame = self.frame;
     frame.origin.x = current_x;
     self.frame = frame;
@@ -27,7 +27,7 @@
     return self.frame.origin.y;
 }
 
-- (void)setBjck_current_y:(CGFloat)current_y {
+- (void)setXle_current_y:(CGFloat)current_y {
     CGRect frame = self.frame;
     frame.origin.y = current_y;
     self.frame = frame;
@@ -38,7 +38,7 @@
     return self.frame.size.width;
 }
 
-- (void)setCurrent_w:(CGFloat)current_w {
+- (void)setXle_current_w:(CGFloat)current_w {
     CGRect frame = self.frame;
     frame.size.width = current_w;
     self.frame = frame;
@@ -49,7 +49,7 @@
     return self.frame.size.height;
 }
 
-- (void)setBjck_current_h:(CGFloat)current_h {
+- (void)setXle_current_h:(CGFloat)current_h {
     CGRect frame = self.frame;
     frame.size.height = current_h;
     self.frame = frame;
@@ -61,7 +61,7 @@
     return self.frame.size.height + self.frame.origin.y;
 }
 
-- (void)setBjck_current_y_h:(CGFloat)current_y_h {
+- (void)setXle_current_y_h:(CGFloat)current_y_h {
     CGRect frame = self.frame;
     frame.origin.y = current_y_h - frame.size.height;
     self.frame = frame;
@@ -73,7 +73,7 @@
     return self.frame.size.width + self.frame.origin.x;
 }
 
-- (void)setBjck_current_x_w:(CGFloat)current_x_w {
+- (void)setXle_current_x_w:(CGFloat)current_x_w {
     CGRect frame = self.frame;
     frame.origin.x = current_x_w - frame.size.width;
     self.frame = frame;
@@ -150,7 +150,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setBjck_origin:(CGPoint)origin {
+- (void)setXle_origin:(CGPoint)origin {
     CGRect frame = self.frame;
     frame.origin = origin;
     self.frame = frame;
@@ -164,7 +164,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setBjck_size:(CGSize)size {
+- (void)setXle_size:(CGSize)size {
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
@@ -179,7 +179,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setBjck_centerX:(CGFloat)centerX {
+- (void)setXle_centerX:(CGFloat)centerX {
     self.center = CGPointMake(centerX, self.center.y);
 }
 
@@ -191,7 +191,7 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setBjck_centerY:(CGFloat)centerY {
+- (void)setXle_centerY:(CGFloat)centerY {
     self.center = CGPointMake(self.center.x, centerY);
 }
 
@@ -201,7 +201,7 @@
     ? CGPointMake(self.center.y, self.center.x) : self.center;
 }
 
-- (void)setBjck_orientationCenter:(CGPoint)orientationCenter {
+- (void)setXle_orientationCenter:(CGPoint)orientationCenter {
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.center = CGPointMake(orientationCenter.y, orientationCenter.x);
     } else {

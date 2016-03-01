@@ -28,12 +28,12 @@
 /**
  *  显示GIF动画
  */
-+ (void)showAnimation:(NSString *)messgae;
++ (void)show:(NSString *)messgae animated:(BOOL)animated;
 
 /**
  *  显示GIF动画
  */
-+ (void)showAnimation:(NSString *)messgae toView:(UIView *)view;
++ (void)show:(NSString *)messgae toView:(UIView *)view animated:(BOOL)animated;
 
 /**
  *  隐藏TXLoading

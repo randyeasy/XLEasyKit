@@ -13,4 +13,8 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
+#import <XLEasyFoundation/XLEasyFoundation.h>
+#import <XLEasyKit/XLEasyKit.h>
+
+
 #endif

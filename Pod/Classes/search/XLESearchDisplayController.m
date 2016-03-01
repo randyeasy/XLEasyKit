@@ -86,7 +86,7 @@
     }
 }
 
-- (UITableView *)searchResultsTableView
+- (XLEBaseTableView *)searchResultsTableView
 {
     return self.searchResultsViewController.tableView;
 }

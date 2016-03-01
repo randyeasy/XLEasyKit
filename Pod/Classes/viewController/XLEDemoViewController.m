@@ -6,12 +6,13 @@
 //
 
 #import "XLEDemoViewController.h"
+#import "XLEListKit.h"
 
 @interface XLEDemoViewController ()<
 UITableViewDataSource,
-UITableViewDelegate
+XLEBaseTableViewDelegate
 >
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) XLEBaseTableView *tableView;
 @property (strong, nonatomic) NSMutableArray<XLEDemoItem *> *items;
 
 @end
@@ -65,6 +66,10 @@ UITableViewDelegate
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
     XLEDemoItem *demoItem = self.items[indexPath.row];
+    cell.textLabel.font = XLE_LARGE_FONT;
+    cell.detailTextLabel.font = XLE_SMALL_FONT;
+    cell.detailTextLabel.textColor = XLE_TEXT_HEAVY_COLOR;
+    cell.textLabel.textColor = XLE_TEXT_DARK_COLOR;
     cell.detailTextLabel.text = demoItem.desc;
     cell.textLabel.text = demoItem.name;
     return cell;
@@ -79,11 +84,20 @@ UITableViewDelegate
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1;
+}
+
 
 #pragma mark - set get
-- (UITableView *)tableView{
+- (XLEBaseTableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _tableView = [[XLEBaseTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.rowHeight = 50;

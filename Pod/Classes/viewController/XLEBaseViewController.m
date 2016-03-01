@@ -118,6 +118,12 @@
 
 }
 
+#pragma mark - set get
+- (void)setTitle:(NSString *)title{
+    [super setTitle:title];
+    [self xle_setNaviTitle:title];
+}
+
 @end
 
 

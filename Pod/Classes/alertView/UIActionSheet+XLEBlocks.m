@@ -198,12 +198,12 @@ static const void *XLEActionSheetCancelBlockKey      = &XLEActionSheetCancelBloc
     XLEActionSheetProxy *proxy = objc_getAssociatedObject(self, XLEActionSheetProxyKey);
     if (proxy == nil) {
         proxy = [[XLEActionSheetProxy alloc] init];
-        [self setBjck_proxy:proxy];
+        [self setXle_proxy:proxy];
     }
     return proxy;
 }
 
-- (void)setBjck_proxy:(XLEActionSheetProxy *)xle_proxy
+- (void)setXle_proxy:(XLEActionSheetProxy *)xle_proxy
 {
     objc_setAssociatedObject(self, XLEActionSheetProxyKey, xle_proxy, OBJC_ASSOCIATION_RETAIN);
 }
@@ -219,7 +219,7 @@ static const void *XLEActionSheetCancelBlockKey      = &XLEActionSheetCancelBloc
     return objc_getAssociatedObject(self, XLEActionSheetTapBlockKey);
 }
 
-- (void)setBjck_tapBlock:(XLEActionSheetCompletionBlock)tapBlock {
+- (void)setXle_tapBlock:(XLEActionSheetCompletionBlock)tapBlock {
     [self xle_checkActionSheetDelegate];
     objc_setAssociatedObject(self, XLEActionSheetTapBlockKey, tapBlock, OBJC_ASSOCIATION_COPY);
 }
@@ -228,7 +228,7 @@ static const void *XLEActionSheetCancelBlockKey      = &XLEActionSheetCancelBloc
     return objc_getAssociatedObject(self, XLEActionSheetWillDismissBlockKey);
 }
 
-- (void)setBjck_willDismissBlock:(XLEActionSheetCompletionBlock)willDismissBlock {
+- (void)setXle_willDismissBlock:(XLEActionSheetCompletionBlock)willDismissBlock {
     [self xle_checkActionSheetDelegate];
     objc_setAssociatedObject(self, XLEActionSheetWillDismissBlockKey, willDismissBlock, OBJC_ASSOCIATION_COPY);
 }
@@ -237,7 +237,7 @@ static const void *XLEActionSheetCancelBlockKey      = &XLEActionSheetCancelBloc
     return objc_getAssociatedObject(self, XLEActionSheetDidDismissBlockKey);
 }
 
-- (void)setBjck_didDismissBlock:(XLEActionSheetCompletionBlock)didDismissBlock {
+- (void)setXle_didDismissBlock:(XLEActionSheetCompletionBlock)didDismissBlock {
     [self xle_checkActionSheetDelegate];
     objc_setAssociatedObject(self, XLEActionSheetDidDismissBlockKey, didDismissBlock, OBJC_ASSOCIATION_COPY);
 }
@@ -246,7 +246,7 @@ static const void *XLEActionSheetCancelBlockKey      = &XLEActionSheetCancelBloc
     return objc_getAssociatedObject(self, XLEActionSheetWillPresentBlockKey);
 }
 
-- (void)setBjck_willPresentBlock:(XLEActionSheetBlock)willPresentBlock {
+- (void)setXle_willPresentBlock:(XLEActionSheetBlock)willPresentBlock {
     [self xle_checkActionSheetDelegate];
     objc_setAssociatedObject(self, XLEActionSheetWillPresentBlockKey, willPresentBlock, OBJC_ASSOCIATION_COPY);
 }
@@ -255,7 +255,7 @@ static const void *XLEActionSheetCancelBlockKey      = &XLEActionSheetCancelBloc
     return objc_getAssociatedObject(self, XLEActionSheetDidPresentBlockKey);
 }
 
-- (void)setBjck_didPresentBlock:(XLEActionSheetBlock)didPresentBlock {
+- (void)setXle_didPresentBlock:(XLEActionSheetBlock)didPresentBlock {
     [self xle_checkActionSheetDelegate];
     objc_setAssociatedObject(self, XLEActionSheetDidPresentBlockKey, didPresentBlock, OBJC_ASSOCIATION_COPY);
 }
@@ -264,7 +264,7 @@ static const void *XLEActionSheetCancelBlockKey      = &XLEActionSheetCancelBloc
     return objc_getAssociatedObject(self, XLEActionSheetCancelBlockKey);
 }
 
-- (void)setBjck_cancelBlock:(XLEActionSheetBlock)cancelBlock {
+- (void)setXle_cancelBlock:(XLEActionSheetBlock)cancelBlock {
     [self xle_checkActionSheetDelegate];
     objc_setAssociatedObject(self, XLEActionSheetCancelBlockKey, cancelBlock, OBJC_ASSOCIATION_COPY);
 }

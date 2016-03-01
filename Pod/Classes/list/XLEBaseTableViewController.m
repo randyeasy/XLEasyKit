@@ -8,6 +8,9 @@
 
 #import "XLEBaseTableViewController.h"
 #import "XLETableConfigModel.h"
+#import "XLEErrorView.h"
+#import "XLEBlankView.h"
+#import "XLEError.h"
 
 @interface XLEBaseTableViewController ()<
     XLEBaseTableViewDelegate,
@@ -20,6 +23,8 @@
 @property (strong, nonatomic) XLETableConfigModel *config;
 @property (strong, nonatomic) NSMutableArray *mutList;
 @property (assign, nonatomic) BOOL dataLoaded;
+
+@property (strong, nonatomic) XLEError *error;
 
 @end
 
@@ -52,9 +57,15 @@
     [self.constraints addObjectsFromArray:[self.tableView autoPinEdgesToSuperviewEdgesWithInsets:self.tableViewInsets]];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidAppearFisrtHandle
 {
-    [super viewDidAppear:animated];
+    [super viewDidAppearFisrtHandle];
+    [self.tableView startRefresh];
+}
+
+- (void)viewDidAppearUnFisrtHandle{
+    [super viewDidAppearUnFisrtHandle];
+    
     if ([self forceRefreshWhenViewAppear]) {
         [self.tableView startRefresh];
     }
@@ -106,9 +117,14 @@
     
 }
 
-- (void)onTableView:(XLEBaseTableView *)tableView updateErrorView:(UIView *)blankView;
+- (void)onTableView:(XLEBaseTableView *)tableView
+    updateErrorView:(UIView *)errorView
+              error:(XLEError *)error;
 {
-    
+    if ([errorView isKindOfClass:[XLEErrorView class]]) {
+        XLEErrorView *errorView2 = (XLEErrorView *)errorView;
+        errorView2.label.text = error.reason;
+    }
 }
 
 - (Class)onTableView:(UITableView *)tableView
@@ -132,6 +148,7 @@
 }
 
 - (void)tableView:(XLEBaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self onTableView:tableView selectedItem:[self.mutList xle_objectAtIndex:indexPath.row] indexPath:indexPath];
 }
 
@@ -166,8 +183,9 @@
             if (!error) {
                 weakSelf.pageModel = pageModel;
                 [weakSelf.mutList removeAllObjects];
-                [weakSelf.mutList addObject:items];
+                [weakSelf.mutList addObjectsFromArray:items];
             }
+            weakSelf.error = error;
             if (callback) {
                 callback(!error);
             }
@@ -175,10 +193,15 @@
     }
 }
 
-//默认no
-- (BOOL)hasMoreInTableView:(XLEBaseTableView *)tableView;
+- (BOOL)hasMoreViewInTableView:(XLEBaseTableView *)tableView;
 {
-    return self.config.hasMore && self.pageModel.hasMore;
+    return self.config.hasMore;
+}
+
+//默认no
+- (BOOL)hasMoreDataInTableView:(XLEBaseTableView *)tableView;
+{
+    return self.config.hasMore && self.pageModel.hasMore && self.mutList.count>0;
 }
 //默认no
 - (BOOL)hasRefreshInTableView:(XLEBaseTableView *)tableView;
@@ -201,7 +224,7 @@
 {
     if (self.dataLoaded) {
         UIView *errorView = [[self.config.errorClass alloc] init];
-        [self onTableView:tableView updateErrorView:errorView];
+        [self onTableView:tableView updateErrorView:errorView error:self.error];
         return errorView;
     }
     return nil;
@@ -230,6 +253,7 @@
         }
     }
 }
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

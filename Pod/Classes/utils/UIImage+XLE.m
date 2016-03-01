@@ -11,7 +11,7 @@
 @implementation UIImage (XLE)
 + (UIImage *)xle_imageNamed:(NSString *)imageName;
 {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"XLEEasyKit.bundle/%@",imageName]];
+    return [UIImage imageNamed:[NSString stringWithFormat:@"XLEasyKit.bundle/%@",imageName]];
 }
 
 @end

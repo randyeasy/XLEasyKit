@@ -13,9 +13,9 @@
 
 + (MJRefreshFooter *)createFooterWithBlock:(MJRefreshComponentRefreshingBlock)block
 {
-    MJRefreshBackStateFooter *footer = nil;
+    MJRefreshAutoStateFooter *footer = nil;
     if (XLERefreshApperance.footerIdleIamges.count>0 || XLERefreshApperance.footerPullingIamges.count > 0 || XLERefreshApperance.footerRefreshingIamges.count>0) {
-        MJRefreshBackGifFooter *gitFooter = [MJRefreshBackGifFooter footerWithRefreshingBlock:block];
+        MJRefreshAutoGifFooter *gitFooter = [MJRefreshAutoGifFooter footerWithRefreshingBlock:block];
         footer = gitFooter;
         [gitFooter setImages:XLERefreshApperance.footerIdleIamges duration:XLERefreshApperance.footerAnimatedDuration forState:MJRefreshStateIdle];
         [gitFooter setImages:XLERefreshApperance.footerPullingIamges duration:XLERefreshApperance.footerAnimatedDuration forState:MJRefreshStatePulling];
@@ -23,7 +23,7 @@
     }
     else
     {
-        footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:block];
+        footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:block];
     }
     footer.mj_h = XLERefreshApperance.footerHeight;
     [footer setTitle:XLERefreshApperance.footerIdelTitle forState:MJRefreshStateIdle];

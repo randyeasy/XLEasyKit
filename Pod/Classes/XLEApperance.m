@@ -1,5 +1,5 @@
 //
-//  BJCKUIApperance.m
+//  XLEApperance.m
 //  Pods
 //
 //  Created by Randy on 16/2/3.
@@ -53,7 +53,7 @@
         
         _naviBarBackImage = [UIImage xle_imageNamed:@"xle_back"];
         _naviBarBGColor = _tintColor;
-        _naviTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT_BOLD(16)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
+        _naviTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT_BOLD(18)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
         _naviRightTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT(15)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
         _naviRightTitlePressAttributes = [NSDictionary dictionaryWithObjects:@[[[UIColor whiteColor] colorWithAlphaComponent:0.5], XLE_FONT(15)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
         
@@ -66,8 +66,11 @@
         _loadingColor = _darkTextColor;
         _errorColor = _darkTextColor;
         
+        _lrPadding = 15;
+        _tbPadding = 10;
+        
         _separateColor = _lightLineColor;
-        _separatorLeftMargin = 15;
+        _separatorLeftMargin = _lrPadding;
         _separateLineHeight = 1.0f / [UIScreen mainScreen].scale;
         _rowHeight = 44;
         

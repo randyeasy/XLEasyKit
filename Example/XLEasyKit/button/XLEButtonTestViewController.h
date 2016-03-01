@@ -8,6 +8,6 @@
 
 #import "XLEViewController.h"
 
-@interface XLEButtonTestViewController : XLEViewController
+@interface XLEButtonTestViewController : XLEDemoViewController
 
 @end
