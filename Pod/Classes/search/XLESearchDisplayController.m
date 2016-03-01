@@ -29,7 +29,7 @@
 {
     if (searchBar == nil) {
         searchBar = [[XLEBaseSearchBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
-
+        searchBar.showsCancelButton = YES;
     }
     
     self = [super init];

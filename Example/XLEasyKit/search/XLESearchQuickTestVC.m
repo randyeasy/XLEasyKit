@@ -23,8 +23,6 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"quick";
     
-    self.searchController.requestDelegate = self;
-    
     UIButton *theButton = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@"搜索" forState:UIControlStateNormal];
@@ -140,6 +138,7 @@
     if (_searchController == nil) {
         _searchController = [[XLEQuickSearchController alloc] initWithDelegate:self];
         _searchController.hasMore = YES;
+        _searchController.requestDelegate = self;
         _searchController.blankClass = [XLEBlankView class];
         _searchController.errorClass = [XLEErrorView class];
     }

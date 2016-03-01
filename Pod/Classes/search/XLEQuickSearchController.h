@@ -24,6 +24,13 @@
 
 @protocol XLEQuickSearchListDelegate <XLETableViewListDelegate>
 @optional
+/**
+ *  不实现此方法，表明不做本地保存
+ *
+ *  @param tableView
+ *
+ *  @return 保存的key
+ */
 - (NSString *)onHistoryKeyInTableView:(UITableView *)tableView;
 
 @end
