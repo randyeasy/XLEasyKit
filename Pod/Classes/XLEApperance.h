@@ -97,14 +97,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIFont *buttonTextFont; //默认15 粗体
 
 //tip loading error
+@property (assign, nonatomic) CGFloat tipMinTime; //默认2秒
+@property (strong, nonatomic) UIColor *tipBGColor;
 @property (strong, nonatomic) UIFont *tipFont;
-@property (strong, nonatomic) UIFont *loadingFont;
-@property (strong, nonatomic) UIFont *errorFont;
 @property (strong, nonatomic) UIColor *tipColor;
+@property (strong, nullable, nonatomic) UIImage *tipSucImage;
+@property (strong, nullable, nonatomic) UIImage *tipErrorImage;
+
+@property (strong, nonatomic) UIColor *loadingBGColor;
+@property (strong, nonatomic) UIFont *loadingFont;
 @property (strong, nonatomic) UIColor *loadingColor;
-@property (strong, nonatomic) UIColor *errorColor;
-@property (strong, nonatomic) UIImage *tipImage;
-@property (strong, nonatomic) UIImage *errorImage;
 @property (copy, nullable, nonatomic) NSString *loadingImagePath;
 
 //TableView

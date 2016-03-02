@@ -9,105 +9,78 @@
 #import "XLELoading.h"
 #import <YLGIFImage/YLGIFImage.h>
 #import <YLGIFImage/YLImageView.h>
+#import "XLELoadingCustomView.h"
 
 @interface XLELoading ()
 
 @property (nonatomic, strong) MBProgressHUD *loading;
-@property (nonatomic, strong) UIView *customView;
+@property (nonatomic, strong) XLELoadingCustomView *customView;
 
 @end
 
 @implementation XLELoading
 
-+ (XLELoading *)shareLoading
+- (void)showWithMessage:(NSString *)message;
 {
-    static XLELoading *shareLoadingInstance = nil;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        shareLoadingInstance = [[self alloc] init];
-    });
-    return shareLoadingInstance;
+    [self showWithMessage:message toView:[UIApplication sharedApplication].keyWindow];
 }
 
-+ (void)show:(NSString *)message
+- (void)showWithMessage:(NSString *)message toView:(UIView *)view;
 {
-    [self show:message toView:[UIApplication sharedApplication].keyWindow];
+    [self showWithMessage:message toView:view animated:NO];
 }
 
-+ (void)show:(NSString *)message toView:(UIView *)view
+- (void)showWithMessage:(NSString *)message animated:(BOOL)animated;
 {
-    NSAssert1(view, @"%s: View is nil", __FUNCTION__);
-    
-    if ([self shareLoading].loading) {
-        [[self shareLoading].loading hide:NO];
-        [self shareLoading].loading = nil;
+    [self showWithMessage:message toView:[UIApplication sharedApplication].keyWindow animated:animated];
+}
+
+- (void)showWithMessage:(NSString *)message toView:(UIView *)view animated:(BOOL)animated;
+{
+    if (self.loading) {
+        [self.loading removeFromSuperview];
+        self.loading = nil;
     }
-    
-    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
-    hud.removeFromSuperViewOnHide = YES;
-    hud.mode =  MBProgressHUDModeIndeterminate;
-    hud.opacity = 0.8;
-    hud.labelText = message;
-    [view addSubview:hud];
-    [self shareLoading].loading = hud;
-    [[self shareLoading].loading show:YES];
-}
-
-+ (void)showAnimation
-{
-    [self showAnimation:@"拼命加载中..."];
-}
-
-+ (void)showAnimation:(NSString *)messgae
-{
-    [self showAnimation:messgae toView:[UIApplication sharedApplication].keyWindow];
-}
-
-+ (void)showAnimation:(NSString *)message toView:(UIView *)view
-{
-    if (![self shareLoading].customView) {
-        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
-        if (XLEApperanceInstance.loadingImagePath) {
-            YLImageView *animateImg = [YLImageView newAutoLayoutView];
-            YLGIFImage *gifImg = (YLGIFImage *)[YLGIFImage imageWithContentsOfFile:XLEApperanceInstance.loadingImagePath];
-            animateImg.image = gifImg;
-            [customView addSubview:animateImg];
-            [animateImg autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-            [animateImg autoAlignAxisToSuperviewAxis:ALAxisVertical];
-            [animateImg autoSetDimensionsToSize:CGSizeMake(100, 100)];
-        }
-
-        [self shareLoading].customView = customView;
+    if (!animated) {
+        MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
+        hud.removeFromSuperViewOnHide = YES;
+        hud.mode =  MBProgressHUDModeIndeterminate;
+        hud.opacity = 0.8;
+        hud.labelText = message;
+        [view addSubview:hud];
+        hud.labelColor = XLEApperanceInstance.loadingColor;
+        hud.labelFont = XLEApperanceInstance.loadingFont;
+        self.loading = hud;
+        [hud show:YES];
     }
-    
-    if ([self shareLoading].loading) {
-        [[self shareLoading].loading hide:NO];
-        [self shareLoading].loading = nil;
+    else
+    {
+        MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
+        hud.removeFromSuperViewOnHide = YES;
+        hud.mode =  MBProgressHUDModeCustomView;
+        hud.opacity = 0;
+        hud.customView = self.customView;
+        hud.labelText = message;
+        hud.labelColor = XLEApperanceInstance.loadingColor;
+        hud.labelFont = XLEApperanceInstance.loadingFont;
+        [view addSubview:hud];
+        self.loading = hud;
+        [hud show:YES];
     }
-    
-    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
-    hud.removeFromSuperViewOnHide = YES;
-    hud.mode =  MBProgressHUDModeCustomView;
-    hud.opacity = 0;
-    hud.customView = [self shareLoading].customView;
-    hud.labelText = message;
-    hud.labelColor = XLEApperanceInstance.loadingColor;
-    hud.labelFont = XLEApperanceInstance.loadingFont;
-    [view addSubview:hud];
-    [self shareLoading].loading = hud;
-    [[self shareLoading].loading show:YES];
 }
 
-+ (void)hide
+- (void)hide;
 {
-    [self hide:YES];
+    [self.loading hide:YES];
 }
 
-+ (void)hide:(BOOL)animated
-{
-    if ([self shareLoading].loading) {
-        [[self shareLoading].loading hide:animated];
+#pragma mark - set get
+- (XLELoadingCustomView *)customView{
+    if (_customView == nil) {
+        _customView = [[XLELoadingCustomView alloc] init];
+        [_customView setLoadingImagePath:XLEApperanceInstance.loadingImagePath];
     }
+    return _customView;
 }
 
 @end

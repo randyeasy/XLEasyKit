@@ -8,36 +8,40 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol XLELoadingProtocol <NSObject>
 @required
 /**
- *  显示TXLoading
+ *  显示Loading
  *
  *  @param message 显示消息
  */
-+ (void)show:(NSString *)message;
+- (void)showWithMessage:(NSString *)message;
 
 /**
- *  显示TXLoading
+ *  显示Loading
  *
  *  @param message 显示消息
  *  @param view    Super view
  */
-+ (void)show:(NSString *)message toView:(UIView *)view;
+- (void)showWithMessage:(NSString *)message toView:(UIView *)view;
 
 /**
  *  显示GIF动画
  */
-+ (void)show:(NSString *)messgae animated:(BOOL)animated;
+- (void)showWithMessage:(NSString *)messgae animated:(BOOL)animated;
 
 /**
  *  显示GIF动画
  */
-+ (void)show:(NSString *)messgae toView:(UIView *)view animated:(BOOL)animated;
+- (void)showWithMessage:(NSString *)messgae toView:(UIView *)view animated:(BOOL)animated;
 
 /**
- *  隐藏TXLoading
+ *  隐藏Loading
  */
-+ (void)hide;
+- (void)hide;
 
 @end
+
+NS_ASSUME_NONNULL_END

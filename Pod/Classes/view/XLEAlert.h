@@ -11,6 +11,4 @@
 
 @interface XLEAlert : NSObject<XLEAlertProtocol>
 
-
-
 @end

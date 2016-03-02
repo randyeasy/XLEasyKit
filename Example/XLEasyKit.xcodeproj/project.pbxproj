@@ -22,6 +22,10 @@
 		254607D71C8595AB00EBBC55 /* XLEViewManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 254607D11C8595AB00EBBC55 /* XLEViewManagerVC.m */; };
 		254607DA1C8595CB00EBBC55 /* XLESearchDisplayTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 254607D91C8595CB00EBBC55 /* XLESearchDisplayTestVC.m */; };
 		254607DD1C8595DA00EBBC55 /* XLESearchQuickTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 254607DC1C8595DA00EBBC55 /* XLESearchQuickTestVC.m */; };
+		254607FE1C86DD9500EBBC55 /* alert_error_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 254607FA1C86DD9500EBBC55 /* alert_error_icon@2x.png */; };
+		254607FF1C86DD9500EBBC55 /* alert_success_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 254607FB1C86DD9500EBBC55 /* alert_success_icon@2x.png */; };
+		254608001C86DD9500EBBC55 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 254607FC1C86DD9500EBBC55 /* loading.gif */; };
+		254608011C86DD9500EBBC55 /* xle_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 254607FD1C86DD9500EBBC55 /* xle_back@2x.png */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -83,6 +87,10 @@
 		254607D91C8595CB00EBBC55 /* XLESearchDisplayTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLESearchDisplayTestVC.m; sourceTree = "<group>"; };
 		254607DB1C8595DA00EBBC55 /* XLESearchQuickTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLESearchQuickTestVC.h; sourceTree = "<group>"; };
 		254607DC1C8595DA00EBBC55 /* XLESearchQuickTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLESearchQuickTestVC.m; sourceTree = "<group>"; };
+		254607FA1C86DD9500EBBC55 /* alert_error_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert_error_icon@2x.png"; sourceTree = "<group>"; };
+		254607FB1C86DD9500EBBC55 /* alert_success_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert_success_icon@2x.png"; sourceTree = "<group>"; };
+		254607FC1C86DD9500EBBC55 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		254607FD1C86DD9500EBBC55 /* xle_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xle_back@2x.png"; sourceTree = "<group>"; };
 		32AA3D48494305BA0DD9B0DE /* Pods-XLEasyKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLEasyKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLEasyKit_Example/Pods-XLEasyKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		497F3CC982312B8958B85F8D /* Pods-XLEasyKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLEasyKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLEasyKit_Example/Pods-XLEasyKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* XLEasyKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLEasyKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,6 +293,10 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				254607FA1C86DD9500EBBC55 /* alert_error_icon@2x.png */,
+				254607FB1C86DD9500EBBC55 /* alert_success_icon@2x.png */,
+				254607FC1C86DD9500EBBC55 /* loading.gif */,
+				254607FD1C86DD9500EBBC55 /* xle_back@2x.png */,
 				6003F595195388D20070C39A /* XLEasyKit-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -405,8 +417,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				254607FE1C86DD9500EBBC55 /* alert_error_icon@2x.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				254607FF1C86DD9500EBBC55 /* alert_success_icon@2x.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				254608001C86DD9500EBBC55 /* loading.gif in Resources */,
+				254608011C86DD9500EBBC55 /* xle_back@2x.png in Resources */,
 				254607981C853F9700EBBC55 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);

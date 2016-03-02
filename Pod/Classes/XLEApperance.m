@@ -59,12 +59,13 @@
         
         _buttonTextFont = XLE_FONT_BOLD(15);
 
-        _tipFont = _middleFont;
-        _loadingFont = _middleFont;
-        _errorFont = _middleFont;
-        _tipColor = _darkTextColor;
-        _loadingColor = _darkTextColor;
-        _errorColor = _darkTextColor;
+        _tipMinTime = 2.0f;
+        _tipFont = _largeFont;
+        _loadingFont = _largeFont;
+        _tipColor = [UIColor whiteColor];
+        _loadingColor = [UIColor whiteColor];
+        _tipBGColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        _loadingBGColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
         
         _lrPadding = 15;
         _tbPadding = 10;

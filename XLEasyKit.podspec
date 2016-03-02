@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'XLEasyKit' => ['Pod/Assets/*.png']
+    'XLEasyKit' => ['Pod/Assets/*.png', 'Pod/Assets/*.gif']
   }
 
 

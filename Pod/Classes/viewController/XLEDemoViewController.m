@@ -7,6 +7,7 @@
 
 #import "XLEDemoViewController.h"
 #import "XLEListKit.h"
+#import <PureLayout/PureLayout.h>
 
 @interface XLEDemoViewController ()<
 UITableViewDataSource,
@@ -24,6 +25,7 @@ XLEBaseTableViewDelegate
     // Do any additional setup after loading the view.
     [self doAddItemsOperation];
     [self.view addSubview:self.tableView];
+    [self.tableView autoPinEdgesToSuperviewEdges];
 }
 
 - (void)didReceiveMemoryWarning {
