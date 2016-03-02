@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XLEDialogProtocol.h"
+#import "XLEAlertProtocol.h"
 
-@interface XLEDialog : NSObject<XLEDialogProtocol>
+@interface XLEAlert : NSObject<XLEAlertProtocol>
 
 
 

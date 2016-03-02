@@ -14,6 +14,14 @@
 #import "UIView+XLEBorders.h"
 #import "UIView+XLEKey.h"
 #import "UIView+XLEline.h"
+
 #import "UIButton+XLEEdgeInsets.h"
+
+#import "XLELabel.h"
+#import "XLEEnableLabel.h"
+
+#import "XLEEnableImageView.h"
+
+#import "XLEViewManager.h"
 
 #endif /* XLEViewHeaders_h */

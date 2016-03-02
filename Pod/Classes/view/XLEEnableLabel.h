@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface XLEEnableLabel : UILabel
+#import "XLELabel.h"
+@interface XLEEnableLabel : XLELabel
 @property (assign, nonatomic) BOOL unable;
 @property (strong, nonatomic) UIColor *unableColor;
 

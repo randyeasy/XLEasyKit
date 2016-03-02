@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "XLETipProtocol.h"
 #import "XLELoadingProtocol.h"
-#import "XLEDialogProtocol.h"
+#import "XLEAlertProtocol.h"
 
 @interface XLEViewManager : NSObject
 @property (strong, nonatomic) id<XLETipProtocol> tipEngine;
 @property (strong, nonatomic) id<XLELoadingProtocol> loadingEngine;
-@property (strong, nonatomic) id<XLEDialogProtocol> dialogEngine;
+@property (strong, nonatomic) id<XLEAlertProtocol> alertEngine;
 + (instancetype)sharedInstance;
 
 @end

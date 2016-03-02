@@ -7,7 +7,7 @@
 //
 
 #import "XLEViewManager.h"
-#import "XLEDialog.h"
+#import "XLEAlert.h"
 #import "XLETip.h"
 #import "XLELoading.h"
 
@@ -27,9 +27,9 @@
 {
     self = [super init];
     if (self) {
-        _dialogEngine = [[XLEDialog alloc] init];
         _tipEngine = [[XLETip alloc] init];
         _loadingEngine = [[XLELoading alloc] init];
+        _alertEngine = [XLEAlert new];
     }
     return self;
 }

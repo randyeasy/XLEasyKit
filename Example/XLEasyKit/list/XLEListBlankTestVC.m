@@ -8,6 +8,10 @@
 
 #import "XLEListBlankTestVC.h"
 
+@interface XLEListBlankTestVC ()<XLEListRequestOpeProtocol>
+
+@end
+
 @implementation XLEListBlankTestVC
 
 - (instancetype)init

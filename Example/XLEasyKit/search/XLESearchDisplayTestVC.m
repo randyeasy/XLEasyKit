@@ -9,7 +9,10 @@
 #import "XLESearchDisplayTestVC.h"
 #import "XLEListTestManager.h"
 
-@interface XLESearchDisplayTestVC ()
+@interface XLESearchDisplayTestVC () <
+    UISearchBarDelegate,
+    XLEQuickSearchListDelegate,
+    XLEQuickSearchRequestDelegate>
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) XLEQuickSearchController *searchController;
 

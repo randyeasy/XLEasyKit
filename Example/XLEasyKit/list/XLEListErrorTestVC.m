@@ -8,6 +8,10 @@
 
 #import "XLEListErrorTestVC.h"
 
+@interface XLEListErrorTestVC ()<XLEListRequestOpeProtocol>
+
+@end
+
 @implementation XLEListErrorTestVC
 
 
