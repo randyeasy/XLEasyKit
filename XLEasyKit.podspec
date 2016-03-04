@@ -37,19 +37,21 @@ Pod::Spec.new do |s|
 
 
   s.prefix_header_contents =
-    '#import "XLEMacroUtils.h"',
     '#import "XLEApperance.h"',
     '#import <SDWebImage/UIButton+WebCache.h>',
     '#import <XLEasyFoundation/XLEasyFoundation.h>',
     '#import <PureLayout/PureLayout.h>',
     '#import <MBProgressHUD/MBProgressHUD.h>',
-    '#import <XLEasyCache/XLEasyCache.h>'
+    '#import <XLEasyCache/XLEasyCache.h>',
+    '#import <XLEasyKitUtils/XLEasyKitUtils.h>'
+
   s.frameworks = 'UIKit'
   s.dependency 'PureLayout'
   s.dependency 'SDWebImage', '~> 3.7.0'
   s.dependency 'LLSimpleCamera', '~> 4.1'
   s.dependency 'MJRefresh', '~> 3.1'
-  s.dependency 'XLEasyFoundation'
+  s.dependency 'XLEasyFoundation' '~> 0.1'
+  s.dependency 'XLEasyKitUtils' '~> 0.1'
   s.dependency 'JSBadgeView', '~> 1.4.1'
   s.dependency 'MBProgressHUD', '~> 0.9'
   s.dependency 'YLGIFImage', '~> 0.11'

@@ -6,7 +6,6 @@
 //
 
 #import "XLENavigationController.h"
-#import "UIImage+XLEUitls.h"
 #import "XLEBaseViewController.h"
 
 @interface XLENavigationController ()<UIGestureRecognizerDelegate, UINavigationControllerDelegate>

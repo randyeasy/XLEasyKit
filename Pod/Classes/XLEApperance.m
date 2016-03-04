@@ -7,7 +7,6 @@
 //
 
 #import "XLEApperance.h"
-#import "UIColor+XLEUtil.h"
 #import "UIImage+XLE.h"
 
 @implementation XLEApperance

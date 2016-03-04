@@ -7,7 +7,6 @@
 //
 
 #import "XLEBaseSearchBar.h"
-#import "UIImage+XLEUitls.h"
 
 @implementation XLEBaseSearchBar
 

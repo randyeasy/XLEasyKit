@@ -7,7 +7,6 @@
 //
 
 #import "XLESearchHistoryTableViewCell.h"
-#import "XLEViewKit.h"
 
 @interface XLESearchHistoryTableViewCell()
 

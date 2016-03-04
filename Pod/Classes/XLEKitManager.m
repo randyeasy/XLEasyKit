@@ -6,8 +6,8 @@
 //
 //
 
-#import "XLEManager.h"
+#import "XLEKitManager.h"
 
-@implementation XLEManager
+@implementation XLEKitManager
 
 @end

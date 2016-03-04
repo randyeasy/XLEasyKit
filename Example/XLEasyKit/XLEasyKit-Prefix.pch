@@ -15,6 +15,7 @@
     @import Foundation;
 #import <XLEasyFoundation/XLEasyFoundation.h>
 #import <XLEasyKit/XLEasyKit.h>
+#import <XLEasyKitUtils/XLEasyKitUtils.h>
 
 
 #endif

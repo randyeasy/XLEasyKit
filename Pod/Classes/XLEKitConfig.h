@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define XLE_PAGE_SIZE [XLEConfig sharedInstance].pageSize
-#define XLE_PAGE_MIN_INDEX [XLEConfig sharedInstance].pageMinIndex
+#define XLE_PAGE_SIZE [XLEKitConfig sharedInstance].pageSize
+#define XLE_PAGE_MIN_INDEX [XLEKitConfig sharedInstance].pageMinIndex
 
-@interface XLEConfig : NSObject
+@interface XLEKitConfig : NSObject
 
 //list
 @property (assign, nonatomic) NSInteger pageSize;//默认20

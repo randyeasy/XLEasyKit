@@ -7,7 +7,6 @@
 //
 
 #import "XLETipCustomView.h"
-#import "UIView+XLEBasic.h"
 
 @interface XLETipCustomView ()
 @property (strong, nonatomic) UILabel *messageLabel;

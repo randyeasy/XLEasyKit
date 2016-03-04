@@ -7,7 +7,6 @@
 //
 
 #import "XLETableViewCell.h"
-#import "NSString+XLESize.h"
 
 static const CGFloat TXC_CELL_SUB_MAX_WIDTH = 100;
 

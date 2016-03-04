@@ -6,9 +6,9 @@
 //
 //
 
-#import "XLEConfig.h"
+#import "XLEKitConfig.h"
 
-@implementation XLEConfig
+@implementation XLEKitConfig
 
 + (instancetype)sharedInstance
 {

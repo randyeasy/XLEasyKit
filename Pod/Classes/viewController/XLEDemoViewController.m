@@ -7,7 +7,6 @@
 
 #import "XLEDemoViewController.h"
 #import "XLEListKit.h"
-#import <PureLayout/PureLayout.h>
 
 @interface XLEDemoViewController ()<
 UITableViewDataSource,

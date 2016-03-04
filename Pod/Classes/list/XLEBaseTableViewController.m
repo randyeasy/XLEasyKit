@@ -10,7 +10,6 @@
 #import "XLETableConfigModel.h"
 #import "XLEErrorView.h"
 #import "XLEBlankView.h"
-#import "XLEError.h"
 
 @interface XLEBaseTableViewController ()<
     XLEBaseTableViewDelegate,

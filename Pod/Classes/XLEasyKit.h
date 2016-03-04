@@ -9,27 +9,18 @@
 #ifndef XLEasyKit_h
 #define XLEasyKit_h
 
-#import "XLEMacroUtils.h"
+#import "XLEKitMacroUtils.h"
 
 #import "XLEApperance.h"
-#import "XLEConfig.h"
-#import "XLEManager.h"
+#import "XLEKitConfig.h"
+#import "XLEKitManager.h"
 #import "XLEPullRefreshApperance.h"
 
-#import "UIActionSheet+XLEBlocks.h"
-#import "UIAlertView+XLEBlock.h"
-#import "UIImage+XLEUitls.h"
 #import "UIImageView+XLE.h"
 
-#import "XLEKeyBoardCollectionView.h"
-#import "XLEKeyboardScrollView.h"
-#import "XLEKeyboardTableView.h"
-
 #import "NSBundle+xle.h"
-#import "UIColor+XLEHSV.h"
-#import "UIColor+XLEUtil.h"
+
 #import "UIImage+XLE.h"
-#import "XLEImageEffects.h"
 
 #import "XLEViewKit.h"
 

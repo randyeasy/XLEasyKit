@@ -6,7 +6,6 @@
 //
 
 #import "XLEBlankView.h"
-#import "UIImage+XLEUitls.h"
 
 @interface XLEBlankView ()
 

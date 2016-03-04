@@ -4,7 +4,7 @@
 //	Create by Randy on 5/12/2015
 
 #import "XLEPageModel.h"
-#import "XLEConfig.h"
+#import "XLEKitConfig.h"
 
 @implementation XLEPageModel
 

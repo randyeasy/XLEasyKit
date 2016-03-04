@@ -10,6 +10,6 @@
 
 #import "XLEImageLoadEngine.h"
 
-@interface XLEManager : NSObject
+@interface XLEKitManager : NSObject
 
 @end
