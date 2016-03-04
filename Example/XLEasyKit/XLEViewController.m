@@ -74,8 +74,4 @@
     [super doAddItemsOperation];
 }
 
-- (BOOL)hidesNavigationBarWhenPushed{
-    return YES;
-}
-
 @end
