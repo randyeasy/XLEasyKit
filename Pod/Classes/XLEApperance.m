@@ -54,8 +54,10 @@
         _naviBarBackImage = [UIImage xle_imageNamed:@"xle_back"];
         _naviBarBGColor = _tintColor;
         _naviTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT_BOLD(18)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
-        _naviRightTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT(15)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
-        _naviRightTitlePressAttributes = [NSDictionary dictionaryWithObjects:@[[[UIColor whiteColor] colorWithAlphaComponent:0.5], XLE_FONT(15)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
+        _naviRightTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT(18)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
+        _naviRightTitlePressAttributes = [NSDictionary dictionaryWithObjects:@[[[UIColor whiteColor] colorWithAlphaComponent:0.5], XLE_FONT(18)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
+        _naviLeftTitleAttributes = _naviRightTitleAttributes;
+        _naviLeftTitlePressAttributes = _naviRightTitlePressAttributes;
         
         _buttonTextFont = XLE_FONT_BOLD(15);
 
@@ -63,7 +65,7 @@
         _tipFont = _largeFont;
         _loadingFont = _largeFont;
         _tipColor = [UIColor whiteColor];
-        _loadingColor = [UIColor whiteColor];
+        _loadingColor = _darkTextColor;
         _tipBGColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
         _loadingBGColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
         

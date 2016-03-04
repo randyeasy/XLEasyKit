@@ -93,6 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSDictionary<NSString *,id> *naviTitleAttributes;//默认粗体18 白色
 @property (copy, nonatomic) NSDictionary<NSString *,id> *naviRightTitleAttributes;
 @property (copy, nonatomic) NSDictionary<NSString *,id> *naviRightTitlePressAttributes;//高亮
+@property (copy, nonatomic) NSDictionary<NSString *,id> *naviLeftTitleAttributes;
+@property (copy, nonatomic) NSDictionary<NSString *,id> *naviLeftTitlePressAttributes;//高亮
 
 @property (strong, nonatomic) UIFont *buttonTextFont; //默认15 粗体
 

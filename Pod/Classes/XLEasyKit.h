@@ -29,6 +29,7 @@
 #import "UIColor+XLEHSV.h"
 #import "UIColor+XLEUtil.h"
 #import "UIImage+XLE.h"
+#import "XLEImageEffects.h"
 
 #import "XLEViewKit.h"
 
@@ -36,6 +37,9 @@
 
 #import "XLESearchKit.h"
 
+#import "XLEBaseViewController.h"
+#import "XLENavigationController.h"
+#import "UIViewController+XLENaviItem.h"
 #import "XLEDemoViewController.h"
 
 

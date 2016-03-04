@@ -26,6 +26,13 @@
 		254607FF1C86DD9500EBBC55 /* alert_success_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 254607FB1C86DD9500EBBC55 /* alert_success_icon@2x.png */; };
 		254608001C86DD9500EBBC55 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 254607FC1C86DD9500EBBC55 /* loading.gif */; };
 		254608011C86DD9500EBBC55 /* xle_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 254607FD1C86DD9500EBBC55 /* xle_back@2x.png */; };
+		2552E0FB1C8835B100080C4A /* XLENaviItemTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552E0FA1C8835B100080C4A /* XLENaviItemTestVC.m */; };
+		2552E46B1C88654000080C4A /* XLEImageTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552E46A1C88654000080C4A /* XLEImageTestVC.m */; };
+		2552E46D1C8865B000080C4A /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2552E46C1C8865B000080C4A /* image.jpg */; };
+		2552E46F1C892C2600080C4A /* xle_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2552E46E1C892C2600080C4A /* xle_right@2x.png */; };
+		2552E4721C89313100080C4A /* XLENaviBarHiddenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552E4711C89313100080C4A /* XLENaviBarHiddenVC.m */; };
+		2552E4751C89338900080C4A /* XLERemoveTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2552E4741C89338900080C4A /* XLERemoveTestVC.m */; };
+		25686B491C87E1A3003C645B /* XLEAliyunShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25686B481C87E1A3003C645B /* XLEAliyunShowVC.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -91,6 +98,18 @@
 		254607FB1C86DD9500EBBC55 /* alert_success_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert_success_icon@2x.png"; sourceTree = "<group>"; };
 		254607FC1C86DD9500EBBC55 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		254607FD1C86DD9500EBBC55 /* xle_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xle_back@2x.png"; sourceTree = "<group>"; };
+		2552E0F91C8835B100080C4A /* XLENaviItemTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLENaviItemTestVC.h; sourceTree = "<group>"; };
+		2552E0FA1C8835B100080C4A /* XLENaviItemTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLENaviItemTestVC.m; sourceTree = "<group>"; };
+		2552E4691C88654000080C4A /* XLEImageTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLEImageTestVC.h; sourceTree = "<group>"; };
+		2552E46A1C88654000080C4A /* XLEImageTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLEImageTestVC.m; sourceTree = "<group>"; };
+		2552E46C1C8865B000080C4A /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		2552E46E1C892C2600080C4A /* xle_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xle_right@2x.png"; sourceTree = "<group>"; };
+		2552E4701C89313100080C4A /* XLENaviBarHiddenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLENaviBarHiddenVC.h; sourceTree = "<group>"; };
+		2552E4711C89313100080C4A /* XLENaviBarHiddenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLENaviBarHiddenVC.m; sourceTree = "<group>"; };
+		2552E4731C89338900080C4A /* XLERemoveTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLERemoveTestVC.h; sourceTree = "<group>"; };
+		2552E4741C89338900080C4A /* XLERemoveTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLERemoveTestVC.m; sourceTree = "<group>"; };
+		25686B471C87E1A3003C645B /* XLEAliyunShowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLEAliyunShowVC.h; sourceTree = "<group>"; };
+		25686B481C87E1A3003C645B /* XLEAliyunShowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLEAliyunShowVC.m; sourceTree = "<group>"; };
 		32AA3D48494305BA0DD9B0DE /* Pods-XLEasyKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLEasyKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLEasyKit_Example/Pods-XLEasyKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		497F3CC982312B8958B85F8D /* Pods-XLEasyKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLEasyKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLEasyKit_Example/Pods-XLEasyKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* XLEasyKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLEasyKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +199,8 @@
 			children = (
 				254607C11C8595AB00EBBC55 /* XLEAliyunTestVC.h */,
 				254607C21C8595AB00EBBC55 /* XLEAliyunTestVC.m */,
+				25686B471C87E1A3003C645B /* XLEAliyunShowVC.h */,
+				25686B481C87E1A3003C645B /* XLEAliyunShowVC.m */,
 			);
 			path = aliyun;
 			sourceTree = "<group>";
@@ -198,6 +219,14 @@
 			children = (
 				254607C71C8595AB00EBBC55 /* XLEBaseVC.h */,
 				254607C81C8595AB00EBBC55 /* XLEBaseVC.m */,
+				2552E0F91C8835B100080C4A /* XLENaviItemTestVC.h */,
+				2552E0FA1C8835B100080C4A /* XLENaviItemTestVC.m */,
+				2552E4691C88654000080C4A /* XLEImageTestVC.h */,
+				2552E46A1C88654000080C4A /* XLEImageTestVC.m */,
+				2552E4701C89313100080C4A /* XLENaviBarHiddenVC.h */,
+				2552E4711C89313100080C4A /* XLENaviBarHiddenVC.m */,
+				2552E4731C89338900080C4A /* XLERemoveTestVC.h */,
+				2552E4741C89338900080C4A /* XLERemoveTestVC.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -293,6 +322,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2552E46E1C892C2600080C4A /* xle_right@2x.png */,
+				2552E46C1C8865B000080C4A /* image.jpg */,
 				254607FA1C86DD9500EBBC55 /* alert_error_icon@2x.png */,
 				254607FB1C86DD9500EBBC55 /* alert_success_icon@2x.png */,
 				254607FC1C86DD9500EBBC55 /* loading.gif */,
@@ -388,6 +419,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "闫晓亮";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 3ZZ93BPF3L;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -417,6 +451,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2552E46D1C8865B000080C4A /* image.jpg in Resources */,
 				254607FE1C86DD9500EBBC55 /* alert_error_icon@2x.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				254607FF1C86DD9500EBBC55 /* alert_success_icon@2x.png in Resources */,
@@ -425,6 +460,7 @@
 				254608011C86DD9500EBBC55 /* xle_back@2x.png in Resources */,
 				254607981C853F9700EBBC55 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				2552E46F1C892C2600080C4A /* xle_right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,9 +576,14 @@
 				254607DA1C8595CB00EBBC55 /* XLESearchDisplayTestVC.m in Sources */,
 				254607D31C8595AB00EBBC55 /* XLEApperenceTestVC.m in Sources */,
 				254607BD1C85955700EBBC55 /* XLEListTestViewController.m in Sources */,
+				2552E4751C89338900080C4A /* XLERemoveTestVC.m in Sources */,
+				2552E46B1C88654000080C4A /* XLEImageTestVC.m in Sources */,
 				254607BC1C85955700EBBC55 /* XLEListTestManager.m in Sources */,
 				254607D71C8595AB00EBBC55 /* XLEViewManagerVC.m in Sources */,
+				2552E4721C89313100080C4A /* XLENaviBarHiddenVC.m in Sources */,
 				6003F59E195388D20070C39A /* XLEAppDelegate.m in Sources */,
+				2552E0FB1C8835B100080C4A /* XLENaviItemTestVC.m in Sources */,
+				25686B491C87E1A3003C645B /* XLEAliyunShowVC.m in Sources */,
 				254607BF1C85955700EBBC55 /* XLEPullTestVC.m in Sources */,
 				6003F5A7195388D20070C39A /* XLEViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -673,11 +714,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XLEasyKit/XLEasyKit-Prefix.pch";
 				INFOPLIST_FILE = "XLEasyKit/XLEasyKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xle.easyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -689,11 +731,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XLEasyKit/XLEasyKit-Prefix.pch";
 				INFOPLIST_FILE = "XLEasyKit/XLEasyKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xle.easyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

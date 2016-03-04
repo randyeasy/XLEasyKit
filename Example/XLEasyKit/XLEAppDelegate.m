@@ -9,6 +9,8 @@
 #import "XLEAppDelegate.h"
 #import <XLEasyFoundation/XLEasyFoundation.h>
 #import <XLEasyCache/XLEasyCache.h>
+#import <XLEasyKit/XLEasyKit.h>
+#import "XLEViewController.h"
 
 @implementation XLEAppDelegate
 
@@ -17,6 +19,10 @@
     // Override point for customization after application launch.
     [XLELog setLogLevel:XLE_LOG_LEVEL_DEBUG];
     [XLEUserCache registerCacheWithUserName:@"test"];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    XLENavigationController *navi = [[XLENavigationController alloc] initWithRootViewController:[[XLEViewController alloc] init]];
+    self.window.rootViewController = navi;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

@@ -61,7 +61,7 @@
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }]];
     
-    [self.items addObject:[XLEDemoItem itemWithName:@"BaseViewController等相关测试" desc:@"" callback:^{
+    [self.items addObject:[XLEDemoItem itemWithName:@"Base等相关测试" desc:@"NaviItem、图片模糊、baseViewController" callback:^{
         XLEBaseVC *vc = [[XLEBaseVC alloc] init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }]];
@@ -72,6 +72,10 @@
     }]];
     
     [super doAddItemsOperation];
+}
+
+- (BOOL)hidesNavigationBarWhenPushed{
+    return YES;
 }
 
 @end

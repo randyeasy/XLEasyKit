@@ -77,7 +77,7 @@
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
     //此方法在有些情况下不会调用，所有在初始化一个Navi的时候如果根视图不显示导航栏，则在创建的时候设置一下。
-    if ([viewController respondsToSelector:@selector(hidesNavigationBarWhenPushed)]) {
+    if (![viewController isKindOfClass:[XLEBaseViewController class]] && [viewController respondsToSelector:@selector(hidesNavigationBarWhenPushed)]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         BOOL shouldHidden = [viewController performSelector:@selector(hidesNavigationBarWhenPushed)];
@@ -96,14 +96,13 @@
     
     NSMutableArray *mutList = [self.viewControllers mutableCopy];
     BOOL changed;
-    for (UIViewController *oneVC in mutList) {
-        if ([oneVC isKindOfClass:[XLEBaseViewController class]]) {
+    for (UIViewController *oneVC in self.viewControllers) {
+        if ([oneVC isKindOfClass:[XLEBaseViewController class]] && oneVC != viewController) {
             XLEBaseViewController *vc = (XLEBaseViewController *)oneVC;
             if ([vc shouldRomoveWhenViewDisappear]) {
                 changed = YES;
-                [oneVC viewWillDisappear:NO];
                 [mutList removeObject:oneVC];
-                [oneVC viewDidDisappear:NO];
+                break;
             }
         }
     }

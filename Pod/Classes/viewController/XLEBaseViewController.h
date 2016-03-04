@@ -14,7 +14,7 @@
 
 /**
  *  是否需要隐藏导航栏，视图控制器包含在XLENavigationController对象中才会起作用 默认显示
- *
+ *  不是继承自此累的实现此方法也可以实现同样的效果，但是不能作为rootViewController
  *  @return YES：隐藏
  */
 - (BOOL)hidesNavigationBarWhenPushed;
