@@ -94,7 +94,7 @@
         self.interactivePopGestureRecognizer.enabled = YES;
     
     NSMutableArray *mutList = [self.viewControllers mutableCopy];
-    BOOL changed;
+    BOOL changed = NO;
     for (UIViewController *oneVC in self.viewControllers) {
         if ([oneVC isKindOfClass:[XLEBaseViewController class]] && oneVC != viewController) {
             XLEBaseViewController *vc = (XLEBaseViewController *)oneVC;

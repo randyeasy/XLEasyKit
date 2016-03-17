@@ -6,8 +6,7 @@
 //
 //
 
-#import "UIImage+xle.h"
-#import "NSBundle+xle.h"
+#import "UIImage+XLE.h"
 @implementation UIImage (XLE)
 + (UIImage *)xle_imageNamed:(NSString *)imageName;
 {
