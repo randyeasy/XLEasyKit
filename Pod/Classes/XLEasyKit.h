@@ -32,6 +32,8 @@
 #import "XLENavigationController.h"
 #import "UIViewController+XLENaviItem.h"
 #import "XLEDemoViewController.h"
+#import "UITabBarItem+XLECreate.h"
+#import "XLETabBarViewController.h"
 
 
 #endif /* XLEasyKit_h */
