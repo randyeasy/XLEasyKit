@@ -79,7 +79,7 @@
     if (![viewController isKindOfClass:[XLEBaseViewController class]] && [viewController respondsToSelector:@selector(hidesNavigationBarWhenPushed)]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        BOOL shouldHidden = [viewController performSelector:@selector(hidesNavigationBarWhenPushed)];
+        BOOL shouldHidden = [[viewController performSelector:@selector(hidesNavigationBarWhenPushed)] boolValue];
 #pragma clang diagnostic pop
         [navigationController setNavigationBarHidden:shouldHidden animated:YES];
     }
