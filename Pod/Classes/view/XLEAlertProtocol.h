@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class XLEBlockItem;
+
 @protocol XLEAlertProtocol <NSObject>
 /**
  *  显示一条弹框消息 ，按钮title为"确定"
