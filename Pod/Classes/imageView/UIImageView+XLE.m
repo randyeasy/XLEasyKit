@@ -12,54 +12,54 @@
 
 @implementation UIImageView (XLE)
 
-- (void)xle_setImageWithURL:(NSURL *)url;
+- (void)XLE_setImageWithURL:(NSURL *)url;
 {
-    [self xle_setImageWithURL:url placeholderImage:nil];
+    [self XLE_setImageWithURL:url placeholderImage:nil];
 }
 
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
            placeholderImage:(UIImage *)placeholder;
 {
-    [self xle_setImageWithURL:url placeholderImage:placeholder completed:nil];
+    [self XLE_setImageWithURL:url placeholderImage:placeholder completed:nil];
 }
 
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
            placeholderImage:(UIImage *)placeholder
                   completed:(void(^)(UIImage *image, XLEError *error, NSURL *imageURL))completed;
 {
-    [self xle_setImageWithURL:url placeholderImage:placeholder size:CGSizeZero completed:completed];
+    [self XLE_setImageWithURL:url placeholderImage:placeholder size:CGSizeZero completed:completed];
 }
 
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
            placeholderImage:(UIImage *)placeholder
                        size:(CGSize)size;
 {
-    [self xle_setImageWithURL:url placeholderImage:placeholder size:size completed:nil];
+    [self XLE_setImageWithURL:url placeholderImage:placeholder size:size completed:nil];
 }
 
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
            placeholderImage:(UIImage *)placeholder
                        size:(CGSize)size
                   completed:(void(^)(UIImage *image, XLEError *error, NSURL *imageURL))completed;
 {
-    [self xle_setImageWithURL:url placeholderImage:placeholder size:size cut:NO completed:completed];
+    [self XLE_setImageWithURL:url placeholderImage:placeholder size:size cut:NO completed:completed];
 }
 
--(void)xle_setImageWithURL:(NSURL *)url
+-(void)XLE_setImageWithURL:(NSURL *)url
           placeholderImage:(UIImage *)placeholder
                       size:(CGSize)size
                        cut:(BOOL)cut;
 {
-    [self xle_setImageWithURL:url placeholderImage:placeholder size:size cut:cut completed:nil];
+    [self XLE_setImageWithURL:url placeholderImage:placeholder size:size cut:cut completed:nil];
 }
 
-- (NSString *)xle_imageLoadParam:(BOOL)needCut size:(CGSize)size
+- (NSString *)XLE_imageLoadParam:(BOOL)needCut size:(CGSize)size
 {
     
     return [[XLEImageManager sharedInstance].loadEngine imageLoadParamWithCut:needCut size:size];
 }
 
--(void)xle_setImageWithURL:(NSURL *)url
+-(void)XLE_setImageWithURL:(NSURL *)url
           placeholderImage:(UIImage *)placeholder
                       size:(CGSize)size
                        cut:(BOOL)cut
@@ -67,7 +67,7 @@
 {
     if (url && ![url isFileURL]){
         if (!CGSizeEqualToSize(size, CGSizeZero)) {
-            NSString *param = [self xle_imageLoadParam:cut size:size];
+            NSString *param = [self XLE_imageLoadParam:cut size:size];
             
             NSString *pathExtension = @"";
             if (url.absoluteString.pathExtension.length>0) {

@@ -135,7 +135,7 @@
 
 #pragma mark XLEBaseTableViewDelegate
 - (CGFloat)tableView:(XLEBaseTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self onTableView:tableView heightForItem:[self.mutList xle_objectAtIndex:indexPath.row] indexPath:indexPath];
+    return [self onTableView:tableView heightForItem:[self.mutList XLE_objectAtIndex:indexPath.row] indexPath:indexPath];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -148,11 +148,11 @@
 
 - (void)tableView:(XLEBaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self onTableView:tableView selectedItem:[self.mutList xle_objectAtIndex:indexPath.row] indexPath:indexPath];
+    [self onTableView:tableView selectedItem:[self.mutList XLE_objectAtIndex:indexPath.row] indexPath:indexPath];
 }
 
 - (void)tableView:(XLEBaseTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self onTableView:tableView updateCell:cell item:[self.mutList xle_objectAtIndex:indexPath.row] indexPath:indexPath];
+    [self onTableView:tableView updateCell:cell item:[self.mutList XLE_objectAtIndex:indexPath.row] indexPath:indexPath];
 }
 
 //默认no
@@ -240,9 +240,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         if ([self.requestDelegate respondsToSelector:@selector(requestOpeDelete:callback:)]) {
             //TODO loading
-            [self.requestDelegate requestOpeDelete:[self.mutList xle_objectAtIndex:indexPath.row] callback:^(XLEError *error) {
+            [self.requestDelegate requestOpeDelete:[self.mutList XLE_objectAtIndex:indexPath.row] callback:^(XLEError *error) {
                 if (!error) {
-                    [weakSelf.mutList xle_removeObjectAtIndex:indexPath.row];
+                    [weakSelf.mutList XLE_removeObjectAtIndex:indexPath.row];
                     [tableView beginUpdates];
                     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                     [tableView endUpdates];
@@ -264,7 +264,7 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
-    Class cellClass = [self onTableView:tableView cellForItem:[self.mutList xle_objectAtIndex:indexPath.row] indexPath:indexPath];
+    Class cellClass = [self onTableView:tableView cellForItem:[self.mutList XLE_objectAtIndex:indexPath.row] indexPath:indexPath];
     NSString *className = NSStringFromClass([cellClass class]);
     UITableViewCell* cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:className];
     if (cell == nil) {

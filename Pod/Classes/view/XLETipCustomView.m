@@ -36,7 +36,7 @@
     CGSize messageSize = [_messageLabel sizeThatFits:CGSizeMake(maxWidth, CGFLOAT_MAX)];
     _messageLabel.frame = CGRectMake(0, leftY, messageSize.width, messageSize.height);
     
-    CGFloat actualWidth = MAX(_imageView.xle_current_w, _messageLabel.xle_current_w);
+    CGFloat actualWidth = MAX(_imageView.XLE_current_w, _messageLabel.XLE_current_w);
     CGRect frame = self.frame;
     frame.size.height = CGRectGetMaxY(_messageLabel.frame) + tbPadding;
     frame.size.width = actualWidth;
@@ -48,7 +48,7 @@
     _messageLabel.frame = frame;
     
     frame = _imageView.frame;
-    frame.origin.x = (actualWidth - _imageView.xle_current_w) / 2.0f;
+    frame.origin.x = (actualWidth - _imageView.XLE_current_w) / 2.0f;
     _imageView.frame = frame;
 }
 

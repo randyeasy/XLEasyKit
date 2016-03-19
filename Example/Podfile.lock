@@ -20,7 +20,7 @@ PODS:
   - TMCache (1.2.4)
   - XLEasyCache (0.1.0):
     - TMCache (~> 1.2)
-  - XLEasyFoundation (0.1.4):
+  - XLEasyFoundation (0.1.5):
     - CocoaLumberjack (~> 2.2)
     - Mantle (~> 2.0)
   - XLEasyKit (0.1.0):
@@ -33,8 +33,8 @@ PODS:
     - XLEasyFoundation (~> 0.1.0)
     - XLEasyKitUtils (~> 0.1)
     - YLGIFImage (~> 0.11)
-  - XLEasyKitUtils (0.1.0):
-    - PureLayout
+  - XLEasyKitUtils (0.1.1):
+    - PureLayout (~> 3.0.1)
   - YLGIFImage (0.11)
 
 DEPENDENCIES:
@@ -54,9 +54,9 @@ SPEC CHECKSUMS:
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   TMCache: a93984b045a5ee84bd8941bd5e0b54296059cc52
   XLEasyCache: 1675ff27ae65c89ab5a3436d1e0faa896dcf9c81
-  XLEasyFoundation: 402486d525bff33c266bcde96a30c9cb4835a5ef
+  XLEasyFoundation: 1e056643be9177a2f9be37da0e78f7f11de86601
   XLEasyKit: f0dbbb550e0de50f85545518d58b1157f5c909c2
-  XLEasyKitUtils: 7c5d89e041f875b3b8301b2fbc5c25d5f8eb3410
+  XLEasyKitUtils: c9a5a492803b2075373e6daf35eab9c714719c22
   YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
 
 COCOAPODS: 0.39.0

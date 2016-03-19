@@ -6,11 +6,11 @@
 //
 //
 
-#import "NSBundle+xle.h"
+#import "NSBundle+XLE.h"
 
 @implementation NSBundle (XLE)
 
-+ (NSBundle *)xle_MainBundle
++ (NSBundle *)XLE_MainBundle
 {
     NSString *path = [NSBundle pathForResource:@"XLEasyKit" ofType:@"bundle" inDirectory:[[NSBundle mainBundle] resourcePath]];
     NSBundle *bundle = [NSBundle bundleWithPath:path];

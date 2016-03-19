@@ -32,6 +32,6 @@
 
 @interface UIViewController(XLENavigationController)
 
-- (XLENavigationController *)xleNavigationController;
+- (XLENavigationController *)XLENavigationController;
 
 @end

@@ -67,7 +67,7 @@
     if(self.navigationController && self != [self.navigationController.viewControllers firstObject])
     {
         // Put Back button in navigation bar
-        [self xle_setNaviBackArrow];
+        [self XLE_setNaviBackArrow];
     } else {
     }
     NSLog(@"内存释放 viewDidLoad:%@", self);
@@ -121,7 +121,7 @@
 #pragma mark - set get
 - (void)setTitle:(NSString *)title{
     [super setTitle:title];
-    [self xle_setNaviTitle:title];
+    [self XLE_setNaviTitle:title];
 }
 
 @end

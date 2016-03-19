@@ -28,38 +28,38 @@ typedef void(^XLENaviBlock)(XLENaviButtonItem *naviItem);
 
 @interface UIViewController (XLENaviItem)
 
-- (void)xle_setNaviTitle:(NSString *)title;
-- (void)xle_setNaviAttributedTitle:(NSAttributedString *)attTitle;
+- (void)XLE_setNaviTitle:(NSString *)title;
+- (void)XLE_setNaviAttributedTitle:(NSAttributedString *)attTitle;
 
-- (void)xle_setNaviBackArrow;
-- (void)xle_setNaviDismissWithTitle:(NSString *)title;
+- (void)XLE_setNaviBackArrow;
+- (void)XLE_setNaviDismissWithTitle:(NSString *)title;
 /**
  *  overide method
  */
-- (void)xle_onBack;
+- (void)XLE_onBack;
 /**
  *  overide method
  */
-- (void)xle_onDismiss;
+- (void)XLE_onDismiss;
 
 /**
  *  按钮的最小宽度为35
  *
  *  @param item 
  */
-- (void)xle_setNaviLeftWithNaviItem:(XLENaviButtonItem *)item;
-- (void)xle_setNaviRightWithNaviItem:(XLENaviButtonItem *)item;
+- (void)XLE_setNaviLeftWithNaviItem:(XLENaviButtonItem *)item;
+- (void)XLE_setNaviRightWithNaviItem:(XLENaviButtonItem *)item;
 /**
  *  从左到右排序
  *
  *  @param items 左侧多个按钮
  */
-- (void)xle_setNaviLeftWithNaviItems:(NSArray<XLENaviButtonItem *>*)items;
+- (void)XLE_setNaviLeftWithNaviItems:(NSArray<XLENaviButtonItem *>*)items;
 /**
  *  从右到左排序
  *
  *  @param items 右侧多个按钮
  */
-- (void)xle_setNaviRightWithNaviItems:(NSArray<XLENaviButtonItem *>*)items;
+- (void)XLE_setNaviRightWithNaviItems:(NSArray<XLENaviButtonItem *>*)items;
 
 @end

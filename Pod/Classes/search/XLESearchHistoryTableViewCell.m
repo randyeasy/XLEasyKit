@@ -31,7 +31,7 @@
             self.titleBtn.layer.cornerRadius = (self.titleBtn.frame.size.height/2);
             [self.contentView addSubview:self.titleBtn];
         }
-        [self xle_addBottomBorderWithHeight:XLEApperanceInstance.lineHeight color:XLE_LINE_LIGHT_COLOR leftOffset:CGRectGetMinX(self.nameLabel.frame) + XLE_LR_RADDING rightOffset:0 andBottomOffset:0];
+        [self XLE_addBottomBorderWithHeight:XLEApperanceInstance.lineHeight color:XLE_LINE_LIGHT_COLOR leftOffset:CGRectGetMinX(self.nameLabel.frame) + XLE_LR_RADDING rightOffset:0 andBottomOffset:0];
     }
     return self;
 }

@@ -84,7 +84,7 @@
 
 - (BOOL)searchDisplayController:(XLESearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    self.searchString = [searchString xle_trim];
+    self.searchString = [searchString XLE_trim];
     if ([self.searchString length]>0) {
         [self onSearchWithStr:self.searchString];
 
@@ -231,7 +231,7 @@
     }
     else
     {
-        id<NSObject> item = [self.searchList xle_objectAtIndex:indexPath.row];
+        id<NSObject> item = [self.searchList XLE_objectAtIndex:indexPath.row];
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (cell == nil) {
@@ -320,7 +320,7 @@
 }
 
 - (BOOL)shouldShowHistory {
-    NSString *searchString = [self.searchDisplay.searchBar.text xle_trim];
+    NSString *searchString = [self.searchDisplay.searchBar.text XLE_trim];
     return ![searchString length] && [self.delegate respondsToSelector:@selector(onHistoryKeyInTableView:)];
 }
 

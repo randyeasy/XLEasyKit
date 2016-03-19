@@ -86,8 +86,8 @@ static const CGFloat TXC_CELL_SUB_MAX_WIDTH = 100;
         case UITableViewCellStyleValue1:
         case UITableViewCellStyleValue2:
         {
-            CGFloat nameMaxWidth = [_nameLabel.text xle_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, CGFLOAT_MAX) font:_nameLabel.font lineMode:NSLineBreakByWordWrapping].width;
-            CGFloat subMaxWidth = [_subLabel.text xle_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, CGFLOAT_MAX) font:_subLabel.font lineMode:NSLineBreakByWordWrapping].width;//TODO不能超过ContentMaxWidth
+            CGFloat nameMaxWidth = [_nameLabel.text XLE_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, CGFLOAT_MAX) font:_nameLabel.font lineMode:NSLineBreakByWordWrapping].width;
+            CGFloat subMaxWidth = [_subLabel.text XLE_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, CGFLOAT_MAX) font:_subLabel.font lineMode:NSLineBreakByWordWrapping].width;//TODO不能超过ContentMaxWidth
             CGFloat spaceWidth = 0;
             if (_nameLabel && _subLabel) {
                 spaceWidth = 10;
@@ -122,14 +122,14 @@ static const CGFloat TXC_CELL_SUB_MAX_WIDTH = 100;
             if (_nameLabel.numberOfLines == 1) {
                 maxHeight = _nameLabel.font.pointSize;
             }
-            CGFloat nameMaxHeight = [_nameLabel.text xle_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, maxHeight) font:_nameLabel.font lineMode:NSLineBreakByWordWrapping].height;
-            CGFloat nameMaxWidth = [_nameLabel.text xle_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, maxHeight) font:_nameLabel.font lineMode:NSLineBreakByWordWrapping].width;
+            CGFloat nameMaxHeight = [_nameLabel.text XLE_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, maxHeight) font:_nameLabel.font lineMode:NSLineBreakByWordWrapping].height;
+            CGFloat nameMaxWidth = [_nameLabel.text XLE_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, maxHeight) font:_nameLabel.font lineMode:NSLineBreakByWordWrapping].width;
 
             maxHeight = CGFLOAT_MAX;
             if (_subLabel.numberOfLines == 1) {
                 maxHeight = _subLabel.font.pointSize;
             }
-            CGFloat subMaxHeight = [_subLabel.text xle_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, maxHeight) font:_subLabel.font lineMode:NSLineBreakByWordWrapping].height;
+            CGFloat subMaxHeight = [_subLabel.text XLE_maxSizeWithConstrainedSize:CGSizeMake(contentMaxWidth, maxHeight) font:_subLabel.font lineMode:NSLineBreakByWordWrapping].height;
             nameMaxHeight += (self.nameInset.top + self.nameInset.bottom);
 
             CGFloat contentMaxHeight = 0;

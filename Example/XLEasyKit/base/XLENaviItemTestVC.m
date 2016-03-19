@@ -18,55 +18,55 @@
     
     switch (self.type) {
         case XLE_NAVI_TEST_IMAGE: {
-            [self xle_setNaviLeftWithNaviItem:[XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"xle_back"] block:^(XLENaviButtonItem *naviItem) {
+            [self XLE_setNaviLeftWithNaviItem:[XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"XLE_back"] block:^(XLENaviButtonItem *naviItem) {
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }]];
             
-            [self xle_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"xle_right"] block:^(XLENaviButtonItem *naviItem) {
+            [self XLE_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"XLE_right"] block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧成功" toView:weakSelf.view completion:nil];
             }]];
             break;
         }
         case XLE_NAVI_TEST_TITLE: {
-            [self xle_setNaviLeftWithNaviItem:[XLENaviButtonItem naviItemWithTitle:@"左侧" block:^(XLENaviButtonItem *naviItem) {
+            [self XLE_setNaviLeftWithNaviItem:[XLENaviButtonItem naviItemWithTitle:@"左侧" block:^(XLENaviButtonItem *naviItem) {
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }]];
             
-            [self xle_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithTitle:@"右侧" block:^(XLENaviButtonItem *naviItem) {
+            [self XLE_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithTitle:@"右侧" block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧成功" toView:weakSelf.view completion:nil];
             }]];
             break;
         }
         case XLE_NAVI_TEST_IMAGEURL: {
-            [self xle_setNaviLeftWithNaviItem:[XLENaviButtonItem naviItemWithImageUrl:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg@40w_30h_1o_2x_1e_1c.jpg"] block:^(XLENaviButtonItem *naviItem) {
+            [self XLE_setNaviLeftWithNaviItem:[XLENaviButtonItem naviItemWithImageUrl:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg@40w_30h_1o_2x_1e_1c.jpg"] block:^(XLENaviButtonItem *naviItem) {
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }]];
             
-            [self xle_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithImageUrl:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg@40w_30h_1o_2x_1e_1c.jpg"] block:^(XLENaviButtonItem *naviItem) {
+            [self XLE_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithImageUrl:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg@40w_30h_1o_2x_1e_1c.jpg"] block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧成功" toView:weakSelf.view completion:nil];
             }]];
             break;
         }
         case XLE_NAVI_TEST_IMAGE_MORE: {
-            XLENaviButtonItem *item1 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"xle_back"] block:^(XLENaviButtonItem *naviItem) {
+            XLENaviButtonItem *item1 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"XLE_back"] block:^(XLENaviButtonItem *naviItem) {
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }];
             
-            XLENaviButtonItem *item2 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"xle_back"] block:^(XLENaviButtonItem *naviItem) {
+            XLENaviButtonItem *item2 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"XLE_back"] block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击左侧2成功" toView:weakSelf.view completion:nil];
 
             }];
-            [self xle_setNaviLeftWithNaviItems:@[item1, item2]];
+            [self XLE_setNaviLeftWithNaviItems:@[item1, item2]];
             
-            XLENaviButtonItem *rightItem1 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"xle_right"] block:^(XLENaviButtonItem *naviItem) {
+            XLENaviButtonItem *rightItem1 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"XLE_right"] block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧1成功" toView:weakSelf.view completion:nil];
             }];
             
-            XLENaviButtonItem *rightItem2 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"xle_right"] block:^(XLENaviButtonItem *naviItem) {
+            XLENaviButtonItem *rightItem2 = [XLENaviButtonItem naviItemWithImage:[UIImage imageNamed:@"XLE_right"] block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧2成功" toView:weakSelf.view completion:nil];
             }];
             
-            [self xle_setNaviRightWithNaviItems:@[rightItem1, rightItem2]];
+            [self XLE_setNaviRightWithNaviItems:@[rightItem1, rightItem2]];
             break;
         }
         case XLE_NAVI_TEST_TITLE_MORE: {
@@ -78,7 +78,7 @@
             }];
             item2.titleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor grayColor], XLE_FONT_BOLD(15)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
 
-            [self xle_setNaviLeftWithNaviItems:@[item,item2]];
+            [self XLE_setNaviLeftWithNaviItems:@[item,item2]];
             
             XLENaviButtonItem *rightItem1 = [XLENaviButtonItem naviItemWithTitle:@"右侧1比较长" block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧1成功" toView:weakSelf.view completion:nil];
@@ -90,7 +90,7 @@
             rightItem1.titleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor grayColor], XLE_FONT_BOLD(15)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
             rightItem2.titleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor grayColor], XLE_FONT_BOLD(15)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
 
-            [self xle_setNaviRightWithNaviItems:@[rightItem1,rightItem2]];
+            [self XLE_setNaviRightWithNaviItems:@[rightItem1,rightItem2]];
             break;
         }
         case XLE_NAVI_TEST_IMAGEURL_MORE: {
@@ -102,7 +102,7 @@
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击左侧2成功" toView:weakSelf.view completion:nil];
             }];
             
-            [self xle_setNaviLeftWithNaviItems:@[item1,item2]];
+            [self XLE_setNaviLeftWithNaviItems:@[item1,item2]];
             
             XLENaviButtonItem *rightItem1 = [XLENaviButtonItem naviItemWithImageUrl:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg@40w_30h_1o_2x_1e_1c.jpg"] block:^(XLENaviButtonItem *naviItem) {
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧1成功" toView:weakSelf.view completion:nil];
@@ -112,7 +112,7 @@
                 [[XLEViewManager sharedInstance].tipEngine showWithMessage:@"点击右侧2成功" toView:weakSelf.view completion:nil];
             }];
             
-            [self xle_setNaviRightWithNaviItems:@[rightItem1, rightItem2]];
+            [self XLE_setNaviRightWithNaviItems:@[rightItem1, rightItem2]];
             break;
         }
     }

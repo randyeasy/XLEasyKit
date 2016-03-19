@@ -8,7 +8,7 @@
 
 #import "UIImage+XLE.h"
 @implementation UIImage (XLE)
-+ (UIImage *)xle_imageNamed:(NSString *)imageName;
++ (UIImage *)XLE_imageNamed:(NSString *)imageName;
 {
     return [UIImage imageNamed:[NSString stringWithFormat:@"XLEasyKit.bundle/%@",imageName]];
 }

@@ -10,5 +10,5 @@
 
 @interface UIImage (XLE)
 
-+ (UIImage *)xle_imageNamed:(NSString *)imageName;
++ (UIImage *)XLE_imageNamed:(NSString *)imageName;
 @end

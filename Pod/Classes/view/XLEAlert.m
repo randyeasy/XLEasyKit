@@ -62,7 +62,7 @@
     for (XLEBlockItem *oneItem in otherItems) {
         [alertView addButtonWithTitle:oneItem.title];
     }
-    [alertView xle_showAlertViewWithCompleteBlock:^(NSInteger buttonIndex) {
+    [alertView XLE_showAlertViewWithCompleteBlock:^(NSInteger buttonIndex) {
         if (buttonIndex == 0) {
             if (cancelItem.handleBlock) {
                 cancelItem.handleBlock(cancelItem.object);

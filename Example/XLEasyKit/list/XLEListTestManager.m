@@ -14,7 +14,7 @@
 {
     NSMutableArray *mutList = [NSMutableArray new];
     for (int i=0; i<XLE_PAGE_SIZE; i++) {
-        [mutList xle_addObjectNonNil:[XLEDemoItem itemWithName:[NSString stringWithFormat:@"测试数据 下标为：%d",i] desc:nil callback:^{
+        [mutList XLE_addObjectNonNil:[XLEDemoItem itemWithName:[NSString stringWithFormat:@"测试数据 下标为：%d",i] desc:nil callback:^{
             
         }]];
     }

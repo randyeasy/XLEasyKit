@@ -24,15 +24,15 @@
     imageView.layer.borderWidth = 2;
     switch (self.type) {
         case XLE_ALIYUN_ORIGINAL: {
-            [imageView xle_setImageWithURL:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg"]];
+            [imageView XLE_setImageWithURL:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg"]];
             break;
         }
         case XLE_ALIYUN_SCALE: {
-            [imageView xle_setImageWithURL:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg"] placeholderImage:nil size:CGSizeMake(100, 100)];
+            [imageView XLE_setImageWithURL:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg"] placeholderImage:nil size:CGSizeMake(100, 100)];
             break;
         }
         case XLE_ALIYUN_SCALE_CUT: {
-            [imageView xle_setImageWithURL:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg"] placeholderImage:nil size:CGSizeMake(100, 100) cut:YES];
+            [imageView XLE_setImageWithURL:[NSURL URLWithString:@"http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg"] placeholderImage:nil size:CGSizeMake(100, 100) cut:YES];
             break;
         }
     }

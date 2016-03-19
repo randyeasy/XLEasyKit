@@ -15,7 +15,7 @@
     self.placeholder = @"搜索";
     
     self.showsCancelButton = YES;
-    self.backgroundImage = [UIImage xle_imageWithColor:XLE_TINT_COLOR size:self.frame.size];
+    self.backgroundImage = [UIImage XLE_imageWithColor:XLE_TINT_COLOR size:self.frame.size];
     [self setBarTintColor:[UIColor whiteColor]];
 }
 

@@ -10,6 +10,6 @@
 
 @interface NSBundle (XLE)
 
-+ (NSBundle *)xle_MainBundle;
++ (NSBundle *)XLE_MainBundle;
 
 @end

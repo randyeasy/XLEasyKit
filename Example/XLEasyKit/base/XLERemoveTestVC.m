@@ -18,7 +18,7 @@
     self.title = @"push到下一级的时候自动消失";
     
     self.shouldRomoveWhenViewDisappear = YES;
-    [self xle_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithTitle:@"next" block:^(XLENaviButtonItem *naviItem) {
+    [self XLE_setNaviRightWithNaviItem:[XLENaviButtonItem naviItemWithTitle:@"next" block:^(XLENaviButtonItem *naviItem) {
         XLEBaseViewController *vc = [[XLEBaseViewController alloc] init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }]];

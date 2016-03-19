@@ -18,7 +18,7 @@
 
 #import "UIImageView+XLE.h"
 
-#import "NSBundle+xle.h"
+#import "NSBundle+XLE.h"
 
 #import "UIImage+XLE.h"
 

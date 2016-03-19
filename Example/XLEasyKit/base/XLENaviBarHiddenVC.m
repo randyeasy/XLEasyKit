@@ -29,7 +29,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(xle_onBack) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(XLE_onBack) forControlEvents:UIControlEventTouchUpInside];
         button;
     });
     backButton.frame = CGRectMake(30, 50, 200, 44);

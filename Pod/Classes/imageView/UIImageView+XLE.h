@@ -15,7 +15,7 @@
  *
  *  @param url 图片地址
  */
-- (void)xle_setImageWithURL:(NSURL *)url;
+- (void)XLE_setImageWithURL:(NSURL *)url;
 
 /**
  *  加载原图
@@ -23,9 +23,9 @@
  *  @param url         图片地址
  *  @param placeholder 默认图片
  */
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
            placeholderImage:(UIImage *)placeholder;
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
            placeholderImage:(UIImage *)placeholder
                   completed:(void(^)(UIImage *image, XLEError *error, NSURL *imageURL))completed;
 ;
@@ -37,10 +37,10 @@
  *  @param placeholder 默认图片
  *  @param size        返回的图片大小
  */
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
                   placeholderImage:(UIImage *)placeholder
                        size:(CGSize)size;
-- (void)xle_setImageWithURL:(NSURL *)url
+- (void)XLE_setImageWithURL:(NSURL *)url
            placeholderImage:(UIImage *)placeholder
                        size:(CGSize)size
                   completed:(void(^)(UIImage *image, XLEError *error, NSURL *imageURL))completed;
@@ -53,11 +53,11 @@
  *  @param size        返回的图片大小
  *  @param cut         是否裁剪
  */
--(void)xle_setImageWithURL:(NSURL *)url
+-(void)XLE_setImageWithURL:(NSURL *)url
           placeholderImage:(UIImage *)placeholder
                       size:(CGSize)size
                        cut:(BOOL)cut;
--(void)xle_setImageWithURL:(NSURL *)url
+-(void)XLE_setImageWithURL:(NSURL *)url
           placeholderImage:(UIImage *)placeholder
                       size:(CGSize)size
                        cut:(BOOL)cut

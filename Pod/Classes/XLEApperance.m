@@ -25,11 +25,11 @@
 {
     self = [super init];
     if (self) {
-        _tintColor = [UIColor xle_colorWithHexString:@"#00ccff"];
+        _tintColor = [UIColor XLE_colorWithHexString:@"#00ccff"];
         _bgColor = [UIColor whiteColor];
-        _lightTintColor = [UIColor xle_colorWithHexString:@"#00ccff"];
-        _heavyLineColor = [UIColor xle_colorWithHexString:@"#00ccff"];
-        _darkTextColor = [UIColor xle_colorWithHexString:@"#00ccff"];
+        _lightTintColor = [UIColor XLE_colorWithHexString:@"#00ccff"];
+        _heavyLineColor = [UIColor XLE_colorWithHexString:@"#00ccff"];
+        _darkTextColor = [UIColor XLE_colorWithHexString:@"#00ccff"];
         
         _darkTextColor = [UIColor blackColor];
         _heavyTextColor = [UIColor darkGrayColor];
@@ -50,7 +50,7 @@
         _smallFont = XLE_FONT(12);
         _verySmallFont = XLE_FONT(10);
         
-        _naviBarBackImage = [UIImage xle_imageNamed:@"xle_back"];
+        _naviBarBackImage = [UIImage XLE_imageNamed:@"XLE_back"];
         _naviBarBGColor = _tintColor;
         _naviTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT_BOLD(18)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];
         _naviRightTitleAttributes = [NSDictionary dictionaryWithObjects:@[[UIColor whiteColor], XLE_FONT(18)] forKeys:@[NSForegroundColorAttributeName, NSFontAttributeName]];

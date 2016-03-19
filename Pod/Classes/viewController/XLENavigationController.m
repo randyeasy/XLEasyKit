@@ -37,10 +37,10 @@
     [super viewDidLoad];
     self.navigationBar.translucent = NO;
     self.navigationBar.barTintColor = XLEApperanceInstance.naviBarBGColor;
-    self.navigationBar.shadowImage = [UIImage xle_imageWithColor:[UIColor clearColor] size:CGSizeMake([UIScreen mainScreen].bounds.size.width, 0.5)];
+    self.navigationBar.shadowImage = [UIImage XLE_imageWithColor:[UIColor clearColor] size:CGSizeMake([UIScreen mainScreen].bounds.size.width, 0.5)];
     CGSize size = [UIScreen mainScreen].bounds.size;
     size.height = 10;
-    [self.navigationBar setBackgroundImage:[UIImage xle_imageWithColor:XLEApperanceInstance.naviBarBGColor size:size] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage XLE_imageWithColor:XLEApperanceInstance.naviBarBGColor size:size] forBarMetrics:UIBarMetricsDefault];
 
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     
@@ -142,7 +142,7 @@
 
 @implementation UIViewController(XLENavigationController)
 
-- (XLENavigationController *)xleNavigationController {
+- (XLENavigationController *)XLENavigationController {
     XLENavigationController *navigationController = (XLENavigationController *)self.navigationController;
     return navigationController;
 }
